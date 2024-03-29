@@ -8,8 +8,9 @@ import BestSellers from "./components/BestSellers";
 import Search from "./components/Search";
 import AboutUs from "./components/AboutUs";
 import ProductDetails from "./components/ProductDetails";
-import LogIn from "./components/Login";
+import LogIn from "./components/LogIn";
 import SignUp from "./components/SignUp";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
+      <Toaster />
       <Footer />
     </>
   );
