@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { LuAlignRight, LuX } from "react-icons/lu";
+import { FaOpencart } from "react-icons/fa6";
 const Header = () => {
   const [open, setOpen] = useState(false);
   const toggleNavigation = () => {
@@ -15,9 +16,9 @@ const Header = () => {
             to="/"
             className="flex font-outfit font-medium items-center text-gray-900 mb-4 md:mb-0"
           >
-            <img src="../images/logo.png" width="40px" />
-            <span className="ml-2 text-xl font-bold text-purple-500">
-              E-commerce
+            <FaOpencart size={40} className="text-[#16a34a]" />
+            <span className="text-xl font-bold text-[#198057]">
+              sabkaBazzar
             </span>
           </Link>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
@@ -71,9 +72,7 @@ const Header = () => {
               Login
             </NavLink>
           </nav>
-          <Link
-            to="/cart"
-          >
+          <Link to="/cart">
             <h2 className="flex gap-2 items-center text-lg pr-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -95,7 +94,9 @@ const Header = () => {
                 <path d="m5 11 4-7"></path>
                 <path d="m9 11 1 9"></path>
               </svg>
-              <span className="bg-[#198057] text-white  px-2 rounded-full">0</span>
+              <span className="bg-[#198057] text-white  px-2 rounded-full">
+                0
+              </span>
             </h2>
           </Link>
           <Link
@@ -126,15 +127,15 @@ const Header = () => {
         <div className="md:hidden container mx-auto flex flex-wrap px-4 pt-3 flex-col">
           <div className="fixed top-0 left-0 right-0 z-30 container mx-auto flex flex-wrap px-4 pt-3 flex-col bg-gray-100 dark:bg-slate-600 ">
             <div className="flex justify-between z-30 text-gray-600 dark:text-white">
-              <NavLink
+              <Link
                 to="/"
-                className="flex font-outfit font-medium items-center  mb-4 md:mb-0"
+                className="flex font-outfit font-medium items-center text-gray-900 mb-4 md:mb-0"
               >
-                <img src="../images/logo.png" width="30px" />
-                <span className="ml-2 text-xl font-bold text-purple-500">
-                  DesiBlogs
+                <FaOpencart size={40} className="text-[#16a34a]" />
+                <span className="text-xl font-bold text-[#198057]">
+                  sabkaBazzar
                 </span>
-              </NavLink>
+              </Link>
               <div>
                 {open === true ? (
                   <LuX

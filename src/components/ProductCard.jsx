@@ -5,7 +5,7 @@ const ProductCard = () => {
   return (
     <>
       <NavLink
-        to={"/productDetails/1"}
+        to={"/cart"}
         className="group relative block overflow-hidden font-outfit card-shadow-custom rounded-md"
       >
         <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
@@ -26,12 +26,13 @@ const ProductCard = () => {
             />
           </svg>
         </button>
-
-        <img
-          src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHNoaXJ0fGVufDB8fDB8fHww"
-          alt=""
-          className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-        />
+        <NavLink to={"/productDetails/1"}>
+          <img
+            src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHNoaXJ0fGVufDB8fDB8fHww"
+            alt=""
+            className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
+          />
+        </NavLink>
 
         <div className="relative  bg-white p-6">
           <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
@@ -44,7 +45,7 @@ const ProductCard = () => {
           <p className="mt-1.5 text-sm text-gray-700">$14.99</p>
 
           <form className="mt-4">
-            <button className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105">
+            <button className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a]">
               Add to Cart
             </button>
           </form>

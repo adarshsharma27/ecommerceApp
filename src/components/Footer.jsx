@@ -1,4 +1,5 @@
 import React from "react";
+import { FaOpencart } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -8,18 +9,16 @@ const Footer = () => {
         <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="flex justify-center text-indigo-600">
             <Link
-              className="flex font-bold text-indigo-600 dark:text-white"
               to="/"
+              className="flex font-outfit font-medium items-center text-gray-900 mb-4 md:mb-0"
             >
-              E-commerce
+              <FaOpencart size={40} className="text-[#16a34a]" />
+              <span className="text-xl font-bold text-[#198057]">
+                sabkaBazzar
+              </span>
             </Link>
           </div>
-
-          <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
-            E-commerce
-          </p>
-
-          <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+          <ul className="mt-6 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             <li>
               <Link
                 className="text-gray-700  transition hover:text-gray-700/75 dark:text-white"
@@ -57,7 +56,7 @@ const Footer = () => {
             </li>
           </ul>
 
-          <ul className="mt-12 flex justify-center gap-6 md:gap-8">
+          <ul className="mt-6 flex justify-center gap-6 md:gap-8">
             <li>
               <Link
                 to="/"

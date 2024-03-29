@@ -122,7 +122,7 @@ const SignUp = () => {
               </div>
 
               <div className="flex items-center justify-between">
-                <button className="inline-flex items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-indigo-500">
+                <button className="inline-flex items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-[#16a34a]">
                   <span className="text-medium font-medium"> SignUp </span>
 
                   <svg
