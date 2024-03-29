@@ -2,8 +2,20 @@ import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { LuAlignRight, LuX } from "react-icons/lu";
 import { FaOpencart } from "react-icons/fa6";
+import conf, { account } from "../conf/config";
+import { logOut } from "../features/AuthenticationSlice";
+import { useDispatch, useSelector } from "react-redux";
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const userDetails = useSelector(
+    (state) => state.AuthenticationReducer.userData
+  );
+  const dispatch = useDispatch();
+  const LogOut = async () => {
+    await account.deleteSession("current");
+    dispatch(logOut(null));
+    setOpen(!open);
+  };
   const toggleNavigation = () => {
     setOpen(!open);
   };
@@ -49,28 +61,42 @@ const Header = () => {
             >
               Best Sellers
             </NavLink>
+            {userDetails?.userId === conf.adminUserId &&
+              userDetails?.providerUid === conf.adminUserEmail && (
+                
+                  <NavLink
+                    className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                    to="/dashboard"
+                  >
+                    DashBoard
+                  </NavLink>
+                
+              )}
+            {userDetails ? (
+              <NavLink
+                to="/login"
+                className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                onClick={LogOut}
+              >
+                LogOut
+              </NavLink>
+            ) : (
+              <>
+                <NavLink
+                  to="/signUp"
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                >
+                  SignUp
+                </NavLink>
 
-            <NavLink
-              to="/login"
-              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
-              onClick={""}
-            >
-              LogOut
-            </NavLink>
-
-            <NavLink
-              to="/signUp"
-              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
-            >
-              SignUp
-            </NavLink>
-
-            <NavLink
-              to="/login"
-              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
-            >
-              Login
-            </NavLink>
+                <NavLink
+                  to="/login"
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                >
+                  Login
+                </NavLink>
+              </>
+            )}
           </nav>
           <Link to="/cart">
             <h2 className="flex gap-2 items-center text-lg pr-2">

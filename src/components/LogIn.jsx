@@ -8,6 +8,8 @@ import {
 } from "react-icons/ri";
 import conf, { account } from "../conf/config";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logIn } from "../features/AuthenticationSlice";
 
 const LogIn = () => {
   const [email, setEmail] = useState();
@@ -16,6 +18,7 @@ const LogIn = () => {
   const [emailErr, setEmailErr] = useState(false);
   const [passwordErr, setPasswordErr] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   useEffect(() => {
     if (password === "") {
       setShowPassword(false);
@@ -32,7 +35,7 @@ const LogIn = () => {
     } else {
       try {
         const userData = await account.createEmailSession(email, password);
-        // dispatch(logIn(userData));
+        dispatch(logIn(userData));
         toast.success("LoggedIn Successfully", {
           duration: 4000,
           position: "top-right",
@@ -84,7 +87,7 @@ const LogIn = () => {
         conf.guestUserEmail,
         conf.guestUserPassword
       );
-      // dispatch(logIn(userData));
+      dispatch(logIn(userData));
       toast.success("LoggedIn Successfully", {
         duration: 4000,
         position: "top-right",
@@ -126,7 +129,7 @@ const LogIn = () => {
           <img
             alt="profileLinks"
             src="images/login.avif"
-            className="object-cover w-full  lg:h-[368px]  h-full rounded-lg "
+            className="object-cover w-full  lg:h-[470px]  h-full rounded-lg "
           />
         </div>
         <div>
