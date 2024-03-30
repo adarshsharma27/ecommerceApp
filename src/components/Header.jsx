@@ -61,6 +61,18 @@ const Header = () => {
             >
               Best Sellers
             </NavLink>
+            <NavLink
+              to="/trending"
+              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+            >
+              Trending
+            </NavLink>
+            <NavLink
+              to="/popular"
+              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+            >
+              Popular 
+            </NavLink>
             {userDetails?.userId === conf.adminUserId &&
               userDetails?.providerUid === conf.adminUserEmail && (
                 

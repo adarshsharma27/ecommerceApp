@@ -1,7 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const ProductCard = () => {
+const ProductCard = ({
+  $id,
+  title,
+  price,
+  oldPrice,
+  description,
+  subCategory,
+  image,
+  rating,
+  outOfStock,
+}) => {
   return (
     <>
       <NavLink
@@ -26,26 +36,93 @@ const ProductCard = () => {
             />
           </svg>
         </button>
-        <NavLink to={"/productDetails/1"}>
+        <NavLink to={`/productDetails/${$id}`}>
           <img
-            src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHNoaXJ0fGVufDB8fDB8fHww"
-            alt=""
+            src={image}
+            alt={title}
             className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
           />
         </NavLink>
 
         <div className="relative  bg-white p-6">
-          <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
-            {" "}
-            New{" "}
-          </span>
+          <div className="flex justify-between items-center">
+            <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
+              {subCategory}
+            </span>
+            <div className="flex ">
+              <span className="flex items-center">
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  className="w-4 h-4 text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  className="w-4 h-4 text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  className="w-4 h-4 text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  className="w-4 h-4 text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  className="w-4 h-4 text-yellow-500"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </span>
+            </div>
+          </div>
 
-          <h3 className="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
+          <h3 className="mt-4 text-lg font-bold text-gray-900">{title}</h3>
 
-          <p className="mt-1.5 text-sm text-gray-700">$14.99</p>
-
+          <p className="mt-1.5 text-lg font-bold text-gray-700">
+            ${price}
+            <span className="line-through text-gray-500 font-bold px-1 text-lg">
+              ${oldPrice}
+            </span>
+          </p>
           <form className="mt-4">
-            <button className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a]">
+            <button
+              className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a] disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={outOfStock}
+            >
               Add to Cart
             </button>
           </form>

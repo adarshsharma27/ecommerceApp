@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
+import conf, { Query, databases } from "../conf/config";
+import Skeleton from "./Skeleton";
 
 const BestSellers = () => {
+  const [bestSellers, setBestSellers] = useState([]);
+  useEffect(() => {
+    const getAllProducts = async () => {
+      try {
+        const resp = await databases.listDocuments(
+          conf.databaseId,
+          conf.collectionId,
+          [Query.equal("category", "bestSellers")]
+        );
+
+        setBestSellers(resp?.documents);
+      } catch (error) {}
+    };
+    getAllProducts(bestSellers);
+  }, []);
   return (
     <>
       <section className="text-gray-600 font-outfit dark:bg-slate-700">
@@ -17,11 +34,34 @@ const BestSellers = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4">
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            {bestSellers?.length === 0
+              ? Array.from({ length: 10 }).map(() => <Skeleton />)
+              : bestSellers?.map((bestSellers) => {
+                  const {
+                    $id,
+                    title,
+                    price,
+                    oldPrice,
+                    description,
+                    subCategory,
+                    image,
+                    rating,
+                    outOfStock,
+                  } = bestSellers;
+                  return (
+                    <ProductCard
+                      $id={$id}
+                      title={title}
+                      price={price}
+                      oldPrice={oldPrice}
+                      subCategory={subCategory}
+                      description={description}
+                      image={image}
+                      rating={rating}
+                      outOfStock={outOfStock}
+                    />
+                  );
+                })}
           </div>
         </div>
       </section>
