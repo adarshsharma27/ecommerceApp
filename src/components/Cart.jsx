@@ -1,6 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, resetCart } from "../features/ProductsSlice";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+  resetCart,
+} from "../features/ProductsSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -10,6 +15,12 @@ const Cart = () => {
   };
   const removeProducts = ($id) => {
     dispatch(removeFromCart($id));
+  };
+  const incrementProductQty = ($id) => {
+    dispatch(incrementQuantity($id));
+  };
+  const decrementProductQty = ($id) => {
+    dispatch(decrementQuantity($id));
   };
   return (
     <>
@@ -46,9 +57,19 @@ const Cart = () => {
 
                       <div class="flex gap-3 items-center py-4">
                         <div class="p-2 border rounded-full flex gap-10 items-center px-5">
-                          <button>-</button>
+                          <button
+                            onClick={() => decrementProductQty(products.$id)}
+                            className="cursor-pointer"
+                          >
+                            -
+                          </button>
                           <h2>{products.quantity}</h2>
-                          <button>+</button>
+                          <button
+                            onClick={() => incrementProductQty(products.$id)}
+                            className="cursor-pointer"
+                          >
+                            +
+                          </button>
                         </div>
                         <h2 class="text-2xl font-bold">
                           {products.quantity * products.price}

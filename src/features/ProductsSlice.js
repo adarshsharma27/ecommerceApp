@@ -27,8 +27,34 @@ export const ProductsSlice = createSlice({
     resetCart: (state) => {
       state.productsData = [];
     },
+    incrementQuantity: (state, action) => {
+      const item = state.productsData.find(
+        (elem) => elem.$id === action.payload
+      );
+      if (item) {
+        item.quantity++;
+      }
+    },
+    decrementQuantity: (state, action) => {
+      const item = state.productsData.find(
+        (elem) => elem.$id === action.payload
+      );
+      if (item) {
+        if (item.quantity === 1) {
+          item.quantity = 1;
+        } else {
+          item.quantity--;
+        }
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart, resetCart } = ProductsSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  resetCart,
+  incrementQuantity,
+  decrementQuantity,
+} = ProductsSlice.actions;
 export default ProductsSlice.reducer;
