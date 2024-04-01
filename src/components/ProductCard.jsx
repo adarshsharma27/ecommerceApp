@@ -1,5 +1,8 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { addToCart } from "../features/ProductsSlice";
+import toast from "react-hot-toast";
 
 const ProductCard = ({
   $id,
@@ -11,12 +14,44 @@ const ProductCard = ({
   image,
   rating,
   outOfStock,
+  quantity
 }) => {
+  const dispatch = useDispatch();
+  const addProducts = () => {
+    dispatch(
+      addToCart({
+        $id,
+        title,
+        price,
+        oldPrice,
+        description,
+        subCategory,
+        image,
+        rating,
+        outOfStock,
+        quantity
+      })
+    );
+    toast.success("Product Added Successfully", {
+      duration: 4000,
+      position: "bottom-right",
+      style: {
+        background: "#fff",
+        color: "#252525",
+        padding: "20px",
+        fontWeight: "700",
+        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+        borderBottom: "3px solid #4F46E5",
+        borderRadius: "3px",
+        fontFamily: "Outfit, sans-serif",
+      },
+    });
+  };
   return (
     <>
-      <NavLink
-        to={"/cart"}
+      <div
         className="group relative block overflow-hidden font-outfit card-shadow-custom rounded-md"
+        key={$id}
       >
         <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
           <span className="sr-only">Wishlist</span>
@@ -118,16 +153,17 @@ const ProductCard = ({
               ${oldPrice}
             </span>
           </p>
-          <form className="mt-4">
+          <div className="mt-4">
             <button
               className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a] disabled:cursor-not-allowed disabled:opacity-60"
               disabled={outOfStock}
+              onClick={addProducts}
             >
               Add to Cart
             </button>
-          </form>
+          </div>
         </div>
-      </NavLink>
+      </div>
     </>
   );
 };

@@ -18,7 +18,6 @@ const AllProducts = () => {
     };
     getAllProducts(allProducts);
   }, []);
-  console.log(allProducts);
   return (
     <>
       <section className="text-gray-600 font-outfit dark:bg-slate-700">
@@ -47,6 +46,7 @@ const AllProducts = () => {
                     image,
                     rating,
                     outOfStock,
+                    quantity
                   } = allProducts;
                   return (
                     <ProductCard
@@ -59,6 +59,7 @@ const AllProducts = () => {
                       image={image}
                       rating={rating}
                       outOfStock={outOfStock}
+                      quantity={quantity}
                     />
                   );
                 })}

@@ -10,6 +10,7 @@ const Header = () => {
   const userDetails = useSelector(
     (state) => state.AuthenticationReducer.userData
   );
+  const cart = useSelector((state) => state.ProductsReducer.productsData);
   const dispatch = useDispatch();
   const LogOut = async () => {
     await account.deleteSession("current");
@@ -71,18 +72,16 @@ const Header = () => {
               to="/popular"
               className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
             >
-              Popular 
+              Popular
             </NavLink>
             {userDetails?.userId === conf.adminUserId &&
               userDetails?.providerUid === conf.adminUserEmail && (
-                
-                  <NavLink
-                    className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
-                    to="/dashboard"
-                  >
-                    DashBoard
-                  </NavLink>
-                
+                <NavLink
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                  to="/dashboard"
+                >
+                  DashBoard
+                </NavLink>
               )}
             {userDetails ? (
               <NavLink
@@ -110,33 +109,37 @@ const Header = () => {
               </>
             )}
           </nav>
-          <Link to="/cart">
-            <h2 className="flex gap-2 items-center text-lg pr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                className="lucide lucide-shopping-basket h-7 w-7"
-              >
-                <path d="m15 11-1 9"></path>
-                <path d="m19 11-4-7"></path>
-                <path d="M2 11h20"></path>
-                <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"></path>
-                <path d="M4.5 15.5h15"></path>
-                <path d="m5 11 4-7"></path>
-                <path d="m9 11 1 9"></path>
-              </svg>
-              <span className="bg-[#198057] text-white  px-2 rounded-full">
-                0
-              </span>
-            </h2>
-          </Link>
+
+          {userDetails && (
+            <Link to="/cart">
+              <h2 className="flex gap-2 items-center text-lg pr-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  className="lucide lucide-shopping-basket h-7 w-7"
+                >
+                  <path d="m15 11-1 9"></path>
+                  <path d="m19 11-4-7"></path>
+                  <path d="M2 11h20"></path>
+                  <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"></path>
+                  <path d="M4.5 15.5h15"></path>
+                  <path d="m5 11 4-7"></path>
+                  <path d="m9 11 1 9"></path>
+                </svg>
+                <span className="bg-[#198057] text-white  px-2 rounded-full">
+                  {cart?.length}
+                </span>
+              </h2>
+            </Link>
+          )}
+
           <Link
             to="/search"
             type="button"
@@ -199,7 +202,7 @@ const Header = () => {
           >
             <NavLink
               to="/"
-              className="hover:text-purple-500 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-purple-500  font-semibold"
+              className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
               onClick={() => toggleNavigation()}
             >
               Home
@@ -207,7 +210,7 @@ const Header = () => {
 
             <NavLink
               to="/aboutus"
-              className="hover:text-purple-500 dark:text-white  py-2 border-b-2 w-10/12 border-gray-500  hover:border-purple-500  font-semibold"
+              className="hover:text-[#16a34a] dark:text-white  py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
               onClick={() => toggleNavigation()}
             >
               About Us
@@ -215,7 +218,7 @@ const Header = () => {
 
             <NavLink
               to="/All Products"
-              className="hover:text-purple-500 dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-purple-500  font-semibold"
+              className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
               onClick={() => toggleNavigation()}
             >
               All Products
@@ -228,33 +231,66 @@ const Header = () => {
               Best Sellers
             </NavLink>
 
-            <NavLink
-              to="/login"
-              className="hover:text-purple-500 dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-purple-500  font-semibold"
-              onClick={""}
-            >
-              LogOut
-            </NavLink>
             <Link
               to="/All Products"
-              className="hover:text-purple-500 flex justify-center items-center	 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-purple-500  font-semibold"
+              className="hover:text-[#16a34a] flex justify-center items-center	 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
               onClick={() => toggleNavigation()}
             ></Link>
+            {userDetails ? (
+              <NavLink
+                to="/login"
+                className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
+                onClick={""}
+              >
+                LogOut
+              </NavLink>
+            ) : (
+              <>
+                <NavLink
+                  to="/signUp"
+                  className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
+                >
+                  SignUp
+                </NavLink>
 
-            <NavLink
-              to="/signUp"
-              className="hover:text-purple-500 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-purple-500  font-semibold"
-            >
-              SignUp
-            </NavLink>
+                <NavLink
+                  to="/login"
+                  className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
+                >
+                  Login
+                </NavLink>
+              </>
+            )}
 
-            <NavLink
-              to="/login"
-              className="hover:text-purple-500 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-purple-500  font-semibold"
-            >
-              Login
-            </NavLink>
-
+            {userDetails && (
+              <Link to="/cart">
+                <h2 className="flex gap-2 items-center text-lg pr-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    className="lucide lucide-shopping-basket h-7 w-7"
+                  >
+                    <path d="m15 11-1 9"></path>
+                    <path d="m19 11-4-7"></path>
+                    <path d="M2 11h20"></path>
+                    <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"></path>
+                    <path d="M4.5 15.5h15"></path>
+                    <path d="m5 11 4-7"></path>
+                    <path d="m9 11 1 9"></path>
+                  </svg>
+                  <span className="bg-[#198057] text-white  px-2 rounded-full">
+                    {cart?.length}
+                  </span>
+                </h2>
+              </Link>
+            )}
             <Link
               to="/search"
               type="button"

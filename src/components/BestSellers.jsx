@@ -47,6 +47,7 @@ const BestSellers = () => {
                     image,
                     rating,
                     outOfStock,
+                    quantity
                   } = bestSellers;
                   return (
                     <ProductCard
@@ -59,6 +60,7 @@ const BestSellers = () => {
                       image={image}
                       rating={rating}
                       outOfStock={outOfStock}
+                      quantity={quantity}
                     />
                   );
                 })}

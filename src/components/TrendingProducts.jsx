@@ -47,6 +47,7 @@ const TrendingProducts = () => {
                     image,
                     rating,
                     outOfStock,
+                    quantity
                   } = trendingProducts;
                   return (
                     <ProductCard
@@ -59,6 +60,7 @@ const TrendingProducts = () => {
                       image={image}
                       rating={rating}
                       outOfStock={outOfStock}
+                      quantity={quantity}
                     />
                   );
                 })}
