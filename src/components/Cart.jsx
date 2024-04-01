@@ -55,8 +55,8 @@ const Cart = () => {
                         {products.price}
                       </span>
 
-                      <div class="flex gap-3 items-center py-4">
-                        <div class="p-2 border rounded-full flex gap-10 items-center px-5">
+                      <div className="flex gap-3 items-center py-4">
+                        <div className="p-2 border rounded-full flex gap-10 items-center px-5">
                           <button
                             onClick={() => decrementProductQty(products.$id)}
                             className="cursor-pointer"
@@ -71,7 +71,7 @@ const Cart = () => {
                             +
                           </button>
                         </div>
-                        <h2 class="text-2xl font-bold">
+                        <h2 className="text-2xl font-bold">
                           {products.quantity * products.price}
                         </h2>
                       </div>

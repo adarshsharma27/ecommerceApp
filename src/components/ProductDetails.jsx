@@ -23,9 +23,9 @@ const ProductDetails = () => {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-yellow-500"
                     viewBox="0 0 24 24"
                   >
@@ -34,9 +34,9 @@ const ProductDetails = () => {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-yellow-500"
                     viewBox="0 0 24 24"
                   >
@@ -45,9 +45,9 @@ const ProductDetails = () => {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-yellow-500"
                     viewBox="0 0 24 24"
                   >
@@ -56,9 +56,9 @@ const ProductDetails = () => {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-yellow-500"
                     viewBox="0 0 24 24"
                   >
@@ -67,9 +67,9 @@ const ProductDetails = () => {
                   <svg
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-4 h-4 text-yellow-500"
                     viewBox="0 0 24 24"
                   >
@@ -81,9 +81,9 @@ const ProductDetails = () => {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -93,9 +93,9 @@ const ProductDetails = () => {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -105,9 +105,9 @@ const ProductDetails = () => {
                   <a className="text-gray-500">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
@@ -129,9 +129,9 @@ const ProductDetails = () => {
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
@@ -139,14 +139,14 @@ const ProductDetails = () => {
                   </svg>
                 </button>
               </div>
-              <h2 class="font-medium text-lg">Quantity (2 Pc)</h2>
-              <div class="flex gap-3 items-center py-4">
-                <div class="p-2 border rounded-full flex gap-10 items-center px-5">
+              <h2 className="font-medium text-lg">Quantity (2 Pc)</h2>
+              <div className="flex gap-3 items-center py-4">
+                <div className="p-2 border rounded-full flex gap-10 items-center px-5">
                   <button>-</button>
                   <h2>5</h2>
                   <button>+</button>
                 </div>
-                <h2 class="text-2xl font-bold"> = $4.90</h2>
+                <h2 className="text-2xl font-bold"> = $4.90</h2>
               </div>
 
               <button className=" mt-2 block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105">
