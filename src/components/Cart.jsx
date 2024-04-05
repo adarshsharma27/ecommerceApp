@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   decrementQuantity,
@@ -10,6 +10,12 @@ import {
 const Cart = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.ProductsReducer.productsData);
+  const [total, setTotal] = useState("");
+  useEffect(() => {
+    let price = 0;
+    cart.map((products) => (price += products.quantity * products.price));
+    setTotal(price);
+  }, [cart]);
   const resetProducts = () => {
     dispatch(resetCart());
   };
@@ -117,14 +123,15 @@ const Cart = () => {
                   </h1>
                   <div className="space-y-4">
                     <h2 className="text-xl font-bold text-gray-700 medium:text-2xl  py-1">
-                      SubTotal:<span className="text-gray-600 px-4">$170</span>
+                      SubTotal:
+                      <span className="text-gray-600 px-4">{total}</span>
                     </h2>
                     <h2 className="text-xl font-bold text-gray-700 medium:text-2xl">
                       Shipping:<span className="text-gray-600  px-4">Free</span>
                     </h2>
                     <div className="border-t-2 w-full border-gray-400 py-4">
                       <h2 className="text-xl font-bold text-gray-900 medium:text-3xl flex justify-between">
-                        Total:<span className="text-gray-600">$170</span>
+                        Total:<span className="text-gray-600">{total}</span>
                       </h2>
                     </div>
 
