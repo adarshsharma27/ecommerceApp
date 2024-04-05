@@ -175,7 +175,35 @@ const Header = () => {
                   sabkaBazzar
                 </span>
               </Link>
-              <div>
+
+              <div className="flex gap-2">
+                <Link to="/cart">
+                  <h2 className="flex gap-1 items-center text-lg">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-shopping-basket h-7 w-7"
+                    >
+                      <path d="m15 11-1 9"></path>
+                      <path d="m19 11-4-7"></path>
+                      <path d="M2 11h20"></path>
+                      <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"></path>
+                      <path d="M4.5 15.5h15"></path>
+                      <path d="m5 11 4-7"></path>
+                      <path d="m9 11 1 9"></path>
+                    </svg>
+                    <span className="bg-[#198057] text-white text-center h-7 w-7  rounded-full">
+                      {cart?.length}
+                    </span>
+                  </h2>
+                </Link>
                 {open === true ? (
                   <LuX
                     className="text-2xl"
@@ -223,17 +251,12 @@ const Header = () => {
             </NavLink>
 
             <NavLink
-              to={""}
-              className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+              to="/bestsellers"
+              className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
             >
               Best Sellers
             </NavLink>
 
-            <Link
-              to="/All Products"
-              className="hover:text-[#16a34a] flex justify-center items-center	 dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
-              onClick={() => toggleNavigation()}
-            ></Link>
             {userDetails ? (
               <NavLink
                 to="/login"
@@ -259,34 +282,6 @@ const Header = () => {
                 </NavLink>
               </>
             )}
-
-            <Link to="/cart">
-              <h2 className="flex gap-2 items-center text-lg pr-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-shopping-basket h-7 w-7"
-                >
-                  <path d="m15 11-1 9"></path>
-                  <path d="m19 11-4-7"></path>
-                  <path d="M2 11h20"></path>
-                  <path d="m3.5 11 1.6 7.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6l1.7-7.4"></path>
-                  <path d="M4.5 15.5h15"></path>
-                  <path d="m5 11 4-7"></path>
-                  <path d="m9 11 1 9"></path>
-                </svg>
-                <span className="bg-[#198057] text-white  px-2 rounded-full">
-                  {cart?.length}
-                </span>
-              </h2>
-            </Link>
 
             <Link
               to="/search"
