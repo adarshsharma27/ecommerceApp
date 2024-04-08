@@ -1,22 +1,97 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import conf, { databases } from "../conf/config";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import {
+  addToCart,
+  decrementQuantity,
+  incrementQuantity,
+} from "../features/ProductsSlice";
 const ProductDetails = () => {
+  const cart = useSelector((state) => state.ProductsReducer.productsData);
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const resp = await databases.getDocument(
+          conf.databaseId,
+          conf.collectionId,
+          id
+        );
+
+        setProduct(resp);
+      } catch (error) {}
+    };
+    getProduct();
+  }, [id]);
+
+  const addProducts = () => {
+    const {
+      $id,
+      title,
+      price,
+      oldPrice,
+      description,
+      subCategory,
+      image,
+      rating,
+      outOfStock,
+      quantity,
+    } = product;
+    dispatch(
+      addToCart({
+        $id,
+        title,
+        price,
+        oldPrice,
+        description,
+        subCategory,
+        image,
+        rating,
+        outOfStock,
+        quantity,
+      })
+    );
+    toast.success("Product Added Successfully", {
+      duration: 4000,
+      position: "bottom-right",
+      style: {
+        background: "#fff",
+        color: "#252525",
+        padding: "20px",
+        fontWeight: "700",
+        boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
+        borderBottom: "3px solid #4F46E5",
+        borderRadius: "3px",
+        fontFamily: "Outfit, sans-serif",
+      },
+    });
+  };
+  const incrementProductQty = ($id) => {
+    dispatch(incrementQuantity($id));
+  };
+  const decrementProductQty = ($id) => {
+    dispatch(decrementQuantity($id));
+  };
   return (
     <>
       <section className="text-gray-600 font-outfit overflow-hidden">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
-              alt="ecommerce"
+              alt={product.title}
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
-              src="https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDJ8fHNoaXJ0fGVufDB8fDB8fHww"
+              src={product.image}
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-              <h2 className="text-sm title-font text-gray-500 tracking-widest">
-                BRAND NAME
-              </h2>
+              <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
+                {product.subCategory}
+              </span>
               <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
-                The Catcher in the Rye
+                {product.title}
               </h1>
               <div className="flex mb-4">
                 <span className="flex items-center">
@@ -117,15 +192,14 @@ const ProductDetails = () => {
                 </span>
               </div>
 
-              <p className="leading-relaxed">
-                Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-                sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-                juiceramps cornhole raw denim forage brooklyn. Everyday carry
-              </p>
+              <p className="leading-relaxed">{product.description}</p>
               <div className="flex justify-between pt-4">
-                <span className="title-font font-medium text-2xl text-gray-900">
-                  $58.00
-                </span>
+                <p className="mt-1.5 text-lg font-bold text-gray-700">
+                  ${product.price}
+                  <span className="line-through text-gray-500 font-bold px-1 text-lg">
+                    ${product.oldPrice}
+                  </span>
+                </p>
                 <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
                   <svg
                     fill="currentColor"
@@ -139,17 +213,38 @@ const ProductDetails = () => {
                   </svg>
                 </button>
               </div>
-              <h2 className="font-medium text-lg">Quantity (2 Pc)</h2>
+              {/* <h2 className="font-medium text-lg">Quantity (2 Pc)</h2> */}
               <div className="flex gap-3 items-center py-4">
                 <div className="p-2 border rounded-full flex gap-10 items-center px-5">
-                  <button>-</button>
-                  <h2>5</h2>
-                  <button>+</button>
+                  <button
+                    onClick={() => decrementProductQty(product.$id)}
+                    className="cursor-pointer"
+                  >
+                    -
+                  </button>
+
+                  <h2>
+                    {cart[0]?.quantity ? cart[0]?.quantity : product.quantity}
+                  </h2>
+
+                  <button
+                    onClick={() => incrementProductQty(product.$id)}
+                    className="cursor-pointer"
+                  >
+                    +
+                  </button>
                 </div>
-                <h2 className="text-2xl font-bold"> = $4.90</h2>
+                <h2 className="text-2xl font-bold">
+                  {cart[0]?.quantity
+                    ? cart[0]?.quantity * cart[0]?.price
+                    : product.price}
+                </h2>
               </div>
 
-              <button className=" mt-2 block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105">
+              <button
+                className=" mt-2 block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a] disabled:cursor-not-allowed disabled:opacity-60"
+                onClick={addProducts}
+              >
                 Buy Now
               </button>
             </div>
