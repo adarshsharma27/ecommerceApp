@@ -245,7 +245,7 @@ const ProductDetails = () => {
                 className=" mt-2 block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a] disabled:cursor-not-allowed disabled:opacity-60"
                 onClick={addProducts}
               >
-                Buy Now
+                Add to Cart
               </button>
             </div>
           </div>

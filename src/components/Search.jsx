@@ -5,16 +5,52 @@ import toast from "react-hot-toast";
 import Skeleton from "./Skeleton";
 const Search = () => {
   const [products, setProducts] = useState([]);
-  const [mainCategory, setCategory] = useState("all");
+  const [subCategory, setCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [active, setActive] = useState(false);
   useEffect(() => {
     const getProducts = async () => {
-      if (mainCategory === "all") {
+      if (subCategory === "all") {
         try {
           const resp = await databases.listDocuments(
             conf.databaseId,
             conf.collectionId
+          );
+
+          setProducts(resp?.documents);
+        } catch (error) {}
+      } else if (subCategory === "high") {
+        try {
+          const resp = await databases.listDocuments(
+            conf.databaseId,
+            conf.collectionId,
+            [Query.greaterThan("price", 499)]
+          );
+
+          setProducts(resp?.documents);
+        } catch (error) {}
+      } else if (subCategory === "low") {
+        try {
+          const resp = await databases.listDocuments(
+            conf.databaseId,
+            conf.collectionId,
+            [Query.lessThan("price", 500)]
+          );
+
+          setProducts(resp?.documents);
+        } catch (error) {}
+      } else if (
+        subCategory === "5" ||
+        subCategory === "4" ||
+        subCategory === "3" ||
+        subCategory === "2" ||
+        subCategory === "1"
+      ) {
+        try {
+          const resp = await databases.listDocuments(
+            conf.databaseId,
+            conf.collectionId,
+            [Query.equal("rating", subCategory)]
           );
 
           setProducts(resp?.documents);
@@ -24,7 +60,7 @@ const Search = () => {
           const resp = await databases.listDocuments(
             conf.databaseId,
             conf.collectionId,
-            [Query.equal("mainCategory", mainCategory)]
+            [Query.equal("subCategory", subCategory)]
           );
 
           setProducts(resp?.documents);
@@ -32,7 +68,7 @@ const Search = () => {
       }
     };
     getProducts();
-  }, [mainCategory]);
+  }, [subCategory]);
 
   const searchProducts = async () => {
     if (search === "") {
@@ -90,9 +126,9 @@ const Search = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 md:gap-4  font-outfit dark:bg-slate-700">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 md:gap-2  font-outfit dark:bg-slate-700">
         <div className="flex  flex-col justify-between md:border-e bg-white dark:bg-slate-700">
-          <div className="px-4 md:py-6 pt-16 pb-2">
+          <div className="px-3 md:py-6 pt-16 pb-2">
             <span className="grid h-10 w-32 place-content-center rounded-full bg-gray-100 dark:bg-slate-500 dark:text-white md:text-lg text-base  font-semibold text-gray-500">
               Filters
             </span>
@@ -100,7 +136,7 @@ const Search = () => {
             <ul className="mt-6 md:space-y-4 md:block flex flex-wrap justify-start content-center gap-2">
               <li
                 className={
-                  active && mainCategory === "all"
+                  active && subCategory === "all"
                     ? "bg-[#16a34a] text-white hidden md:block rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
                     : "hidden md:block rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer"
                 }
@@ -113,48 +149,131 @@ const Search = () => {
               </li>
               <li
                 className={
-                  active && mainCategory === "jackets"
+                  active && subCategory === "men"
                     ? "bg-[#16a34a] text-white hidden md:block rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
                     : "hidden md:block rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer"
                 }
                 onClick={() => {
-                  setCategory("jackets");
+                  setCategory("men");
                   setActive(true);
                 }}
               >
-                Jackets
+                Men
               </li>
               <li
                 className={
-                  active && mainCategory === "hoodies"
+                  active && subCategory === "women"
                     ? "bg-[#16a34a] text-white hidden md:block rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
                     : "hidden md:block rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer"
                 }
                 onClick={() => {
-                  setCategory("hoodies");
+                  setCategory("women");
                   setActive(true);
                 }}
               >
-                Hoodies
+                Women
               </li>
 
               <li
                 className={
-                  active && mainCategory === "shoes"
+                  active && subCategory === "high"
                     ? "bg-[#16a34a] text-white hidden md:block rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
                     : "hidden md:block rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer"
                 }
                 onClick={() => {
-                  setCategory("shoes");
+                  setCategory("high");
                   setActive(true);
                 }}
               >
-                Shoes
+                High Price
+              </li>
+              <li
+                className={
+                  active && subCategory === "low"
+                    ? "bg-[#16a34a] text-white hidden md:block rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                    : "hidden md:block rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer"
+                }
+                onClick={() => {
+                  setCategory("low");
+                  setActive(true);
+                }}
+              >
+                Low Price
+              </li>
+              <li className="hidden md:flex items-center gap-1 rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white  cursor-pointer">
+                Rating
+                <ul className="flex flex-wrap gap-1">
+                  <li
+                    className={
+                      active && subCategory === "5"
+                        ? "bg-[#fbbe00] text-white hidden md:block rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                        : "hidden md:block rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-white  hover:bg-[#fbbe00] hover:text-white  cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("5");
+                      setActive(true);
+                    }}
+                  >
+                    5
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "4"
+                        ? "bg-[#fbbe00] text-white hidden md:block rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                        : "hidden md:block rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-white  hover:bg-[#fbbe00] hover:text-white  cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("4");
+                      setActive(true);
+                    }}
+                  >
+                    4
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "3"
+                        ? "bg-[#fbbe00] text-white hidden md:block rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                        : "hidden md:block rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-white  hover:bg-[#fbbe00] hover:text-white  cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("3");
+                      setActive(true);
+                    }}
+                  >
+                    3
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "2"
+                        ? "bg-[#fbbe00] text-white hidden md:block rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                        : "hidden md:block rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-white  hover:bg-[#fbbe00] hover:text-white  cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("2");
+                      setActive(true);
+                    }}
+                  >
+                    2
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "1"
+                        ? "bg-[#fbbe00] text-white hidden md:block rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-base font-semibold  cursor-pointer"
+                        : "hidden md:block rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-base font-semibold text-white  hover:bg-[#fbbe00] hover:text-white  cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("1");
+                      setActive(true);
+                    }}
+                  >
+                    1
+                  </li>
+                </ul>
               </li>
               {/* Mobile filter start */}
               <li
                 className={
-                  active && mainCategory === "all"
+                  active && subCategory === "all"
                     ? "bg-[#16a34a] text-white block md:hidden rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
                     : "block md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-[#16a34a] hover:text-white  cursor-pointer"
                 }
@@ -163,34 +282,131 @@ const Search = () => {
                   setActive(true);
                 }}
               >
-                AllProducts
+                All
               </li>
               <li
                 className={
-                  active && mainCategory === "hoodies"
+                  active && subCategory === "men"
                     ? "bg-[#16a34a] text-white block md:hidden rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
                     : "block md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white cursor-pointer"
                 }
                 onClick={() => {
-                  setCategory("hoodies");
+                  setCategory("men");
                   setActive(true);
                 }}
               >
-                Hoodies
+                Men
               </li>
 
               <li
                 className={
-                  active && mainCategory === "shoes"
+                  active && subCategory === "women"
                     ? "bg-[#16a34a] text-white block md:hidden rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
                     : "block md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white cursor-pointer"
                 }
                 onClick={() => {
-                  setCategory("");
+                  setCategory("women");
                   setActive(true);
                 }}
               >
-                Shoes
+                Women
+              </li>
+
+              <li
+                className={
+                  active && subCategory === "high"
+                    ? "bg-[#16a34a] text-white block md:hidden rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                    : "block md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white cursor-pointer"
+                }
+                onClick={() => {
+                  setCategory("high");
+                  setActive(true);
+                }}
+              >
+                High Price
+              </li>
+              <li
+                className={
+                  active && subCategory === "low"
+                    ? "bg-[#16a34a] text-white block md:hidden rounded-full  dark:bg-[#16a34a] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                    : "block md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white cursor-pointer"
+                }
+                onClick={() => {
+                  setCategory("low");
+                  setActive(true);
+                }}
+              >
+                Low Price
+              </li>
+              <li className="flex items-center gap-2  py-2 md:hidden rounded-full bg-gray-100 dark:bg-slate-600 dark:text-white  px-4 text-sm font-semibold text-gray-700  hover:bg-[#16a34a] hover:text-white cursor-pointer">
+                Rating
+                <ul className="flex flex-wrap gap-2">
+                  <li
+                    className={
+                      active && subCategory === "5"
+                        ? "bg-[#fbbe00] text-white block md:hidden rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                        : "block md:hidden rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-white  hover:bg-[#fbbe00] hover:text-white cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("5");
+                      setActive(true);
+                    }}
+                  >
+                    5
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "4"
+                        ? "bg-[#fbbe00] text-white block md:hidden rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                        : "block md:hidden rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-white  hover:bg-[#fbbe00] hover:text-white cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("4");
+                      setActive(true);
+                    }}
+                  >
+                    4
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "3"
+                        ? "bg-[#fbbe00] text-white block md:hidden rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                        : "block md:hidden rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-white  hover:bg-[#fbbe00] hover:text-white cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("3");
+                      setActive(true);
+                    }}
+                  >
+                    3
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "2"
+                        ? "bg-[#fbbe00] text-white block md:hidden rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                        : "block md:hidden rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-white  hover:bg-[#fbbe00] hover:text-white cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("2");
+                      setActive(true);
+                    }}
+                  >
+                    2
+                  </li>
+                  <li
+                    className={
+                      active && subCategory === "1"
+                        ? "bg-[#fbbe00] text-white block md:hidden rounded-full  dark:bg-[#fbbe00] dark:text-white  px-4 py-2 text-sm font-semibold  cursor-pointer"
+                        : "block md:hidden rounded-full bg-yellow-500 dark:bg-slate-600 dark:text-white  px-4 py-2 text-sm font-semibold text-white  hover:bg-[#fbbe00] hover:text-white cursor-pointer"
+                    }
+                    onClick={() => {
+                      setCategory("1");
+                      setActive(true);
+                    }}
+                  >
+                    1
+                  </li>
+                </ul>
               </li>
               {/* Mobile filter end */}
             </ul>
