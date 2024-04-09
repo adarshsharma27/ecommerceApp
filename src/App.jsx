@@ -13,6 +13,7 @@ import SignUp from "./components/SignUp";
 import { Toaster } from "react-hot-toast";
 import TrendingProducts from "./components/TrendingProducts";
 import PopularProducts from "./components/PopularProducts";
+import SubCategories from "./components/SubCategories";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/category/:id" element={<SubCategories />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>

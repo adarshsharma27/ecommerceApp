@@ -10,7 +10,7 @@ const Categories = () => {
           <div className="flex justify-between gap-2 md:overflow-hidden overflow-x-scroll">
             {categoriesData.map((category) => (
               <div className="text-center  flex-none" key={category.id}>
-              <NavLink to={category.link}>
+              <NavLink to={`/category${category.link}`}>
                 <img
                   src={category.imageUrl}
                   alt={category.title}
