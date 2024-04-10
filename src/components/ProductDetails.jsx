@@ -120,23 +120,30 @@ const ProductDetails = () => {
               {/* <h2 className="font-medium text-lg">Quantity (2 Pc)</h2> */}
               <div className="flex gap-3 items-center py-4">
                 <div className="p-2 border rounded-full flex gap-10 items-center px-5">
-                  <button
-                    onClick={() => decrementProductQty(product.$id)}
-                    className="cursor-pointer"
-                  >
-                    -
-                  </button>
+                  {cart[0]?.quantity ? (
+                    <button
+                      onClick={() => decrementProductQty(product.$id)}
+                      className="cursor-pointer"
+                    >
+                      -
+                    </button>
+                  ) : (
+                    ""
+                  )}
 
                   <h2>
                     {cart[0]?.quantity ? cart[0]?.quantity : product.quantity}
                   </h2>
-
-                  <button
-                    onClick={() => incrementProductQty(product.$id)}
-                    className="cursor-pointer"
-                  >
-                    +
-                  </button>
+                  {cart[0]?.quantity ? (
+                    <button
+                      onClick={() => incrementProductQty(product.$id)}
+                      className="cursor-pointer"
+                    >
+                      +
+                    </button>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <h2 className="text-2xl font-bold">
                   {cart[0]?.quantity
