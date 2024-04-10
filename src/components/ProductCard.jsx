@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { addToCart } from "../features/ProductsSlice";
 import toast from "react-hot-toast";
+import Rating from "./Rating";
 
 const ProductCard = ({
   $id,
@@ -83,65 +84,7 @@ const ProductCard = ({
           <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
             {subCategory}
           </span>
-          <div className="flex ">
-            <span className="flex items-center">
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-              <svg
-                fill="currentColor"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-              <svg
-                fill="none"
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                className="w-4 h-4 text-yellow-500"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-              </svg>
-            </span>
-          </div>
+          <Rating rating={rating} />
         </div>
 
         <h3 className="mt-4 text-lg font-bold text-gray-900">{title}</h3>
