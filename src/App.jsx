@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import TrendingProducts from "./components/TrendingProducts";
 import PopularProducts from "./components/PopularProducts";
 import SubCategories from "./components/SubCategories";
+import Checkout from "./components/CheckOut";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
         <Route path="/category/:id" element={<SubCategories />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>

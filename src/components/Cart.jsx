@@ -6,6 +6,7 @@ import {
   removeFromCart,
   resetCart,
 } from "../features/ProductsSlice";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -136,12 +137,12 @@ const Cart = () => {
                     </div>
 
                     <div className="flex">
-                      <a
-                        href="#"
+                      <NavLink
+                        to="/checkout"
                         className="block rounded-full border border-[#198057] bg-[#198057]  px-12 py-3 text-medium text-gray-100 transition hover:bg-[#16a34a]"
                       >
                         Proceed To Checkout
-                      </a>
+                      </NavLink>
                     </div>
                   </div>
                 </div>
