@@ -14,6 +14,9 @@ const Checkout = () => {
   const [pinCode, setPinCode] = useState();
   const [address, setAddress] = useState();
   const cart = useSelector((state) => state.ProductsReducer.productsData);
+  const {userId} = useSelector(
+    (state) => state.AuthenticationReducer.userData
+  );
   const [total, setTotal] = useState("");
   useEffect(() => {
     let price = 0;
@@ -25,9 +28,10 @@ const Checkout = () => {
     try {
       await databases.createDocument(
         conf.databaseId,
-        "6617c156ae6c441afbb6",
+        conf.ordersCollectionId,
         ID.unique(),
         {
+          userId,
           name: localStorage.getItem("name"),
           email: localStorage.getItem("email"),
           mobileNo: localStorage.getItem("mobileNo"),

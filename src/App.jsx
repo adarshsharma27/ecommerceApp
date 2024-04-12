@@ -15,6 +15,7 @@ import TrendingProducts from "./components/TrendingProducts";
 import PopularProducts from "./components/PopularProducts";
 import SubCategories from "./components/SubCategories";
 import Checkout from "./components/CheckOut";
+import DashBoard from "./components/DashBoard";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/dashboard" element={<DashBoard />} />
       </Routes>
       <Toaster />
       <Footer />
