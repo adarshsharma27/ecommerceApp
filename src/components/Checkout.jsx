@@ -5,7 +5,7 @@ import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useNavigate } from "react-router-dom";
 import conf, { ID, databases } from "../conf/config";
 import toast from "react-hot-toast";
-const Checkout = () => {
+const CheckOut = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -233,4 +233,4 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+export default CheckOut;
