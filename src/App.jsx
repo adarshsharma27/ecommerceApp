@@ -15,7 +15,7 @@ import TrendingProducts from "./components/TrendingProducts";
 import PopularProducts from "./components/PopularProducts";
 import SubCategories from "./components/SubCategories";
 import DashBoard from "./components/DashBoard";
-import CheckOut from "./components/CheckOut";
+import CheckOutPage from "./components/CheckOutPage";
 
 function App() {
   return (
@@ -32,7 +32,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
         <Route path="/category/:id" element={<SubCategories />} />
-        <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<DashBoard />} />
