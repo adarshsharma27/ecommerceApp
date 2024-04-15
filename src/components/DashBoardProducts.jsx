@@ -1,7 +1,8 @@
 import React from "react";
-import { LuTrash2, LuPencilLine } from "react-icons/lu";
+import { LuTrash2, LuPencilLine, LuPlusCircle } from "react-icons/lu";
 import conf, { databases } from "../conf/config";
 import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 const DashBoardProducts = ({ allProducts }) => {
   const deleteProduct = async ($id) => {
     try {
@@ -49,9 +50,10 @@ const DashBoardProducts = ({ allProducts }) => {
               <th className="whitespace-nowrap px-2 py-2 text-lg font-semibold text-gray-900 dark:text-white">
                 Title
               </th>
-              <th className="whitespace-nowrap  px-2 py-2 text-lg font-semibold text-gray-900 dark:text-white">
-                Email
+              <th className="whitespace-nowrap px-2 py-2 text-lg font-semibold text-gray-900 dark:text-white">
+                Description
               </th>
+
               <th className="whitespace-nowrap px-2 py-2  text-lg font-semibold text-gray-900 dark:text-white">
                 Price
               </th>
@@ -71,10 +73,18 @@ const DashBoardProducts = ({ allProducts }) => {
                 MainCategory
               </th>
               <th
-                colspan="3"
+                colspan="2"
                 className="whitespace-nowrap  px-2 py-2 text-lg font-semibold text-gray-900 dark:text-white"
               >
                 SubCategory
+              </th>
+              <th className="whitespace-nowrap text-center  py-2 text-lg font-semibold text-gray-900 dark:text-white">
+                <NavLink to="/addproducts">
+                  <LuPlusCircle
+                    className="text-[#198057] hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
+                    size={30}
+                  />
+                </NavLink>
               </th>
             </tr>
           </thead>
@@ -95,14 +105,14 @@ const DashBoardProducts = ({ allProducts }) => {
                 <td className="whitespace-nowrap  px-2 py-2 font-medium text-gray-900 dark:text-white">
                   {elements.title}
                 </td>
+                <td className="whitespace-rap   py-2 font-sm text-gray-900 dark:text-white">
+                  {elements.description?.slice(0,20)}..
+                </td>
                 <td className="whitespace-nowrap  px-2 py-2 text-gray-700 dark:text-white text-transform: capitalize">
                   {elements.price}
                 </td>
                 <td className="whitespace-nowrap  px-2 py-2 text-gray-700 dark:text-white">
                   {elements.oldPrice}
-                </td>
-                <td className="whitespace-nowrap  px-2 py-2 text-gray-700 dark:text-white">
-                  {elements.price}
                 </td>
                 <td className="whitespace-nowrap  px-2 py-2 text-gray-700 dark:text-white">
                   {elements.quantity}
@@ -121,14 +131,14 @@ const DashBoardProducts = ({ allProducts }) => {
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
                   <LuPencilLine
-                    className="hover:text-indigo-400 hover:cursor-pointer dark:text-white"
+                    className=" text-indigo-400 hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
                     size={30}
                     onClick={() => {}}
                   />
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
                   <LuTrash2
-                    className="hover:text-red-400 hover:cursor-pointer dark:text-white"
+                    className="text-red-400 hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
                     size={30}
                     onClick={() => deleteProduct(elements.$id)}
                   />

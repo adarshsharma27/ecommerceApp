@@ -44,7 +44,7 @@ const TrendingProducts = () => {
                     oldPrice,
                     description,
                     subCategory,
-                    image,
+                    imageUrl,
                     rating,
                     outOfStock,
                     quantity
@@ -57,7 +57,7 @@ const TrendingProducts = () => {
                       oldPrice={oldPrice}
                       subCategory={subCategory}
                       description={description}
-                      image={image}
+                      image={imageUrl}
                       rating={rating}
                       outOfStock={outOfStock}
                       quantity={quantity}

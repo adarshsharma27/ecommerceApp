@@ -43,7 +43,7 @@ const AllProducts = () => {
                     oldPrice,
                     description,
                     subCategory,
-                    image,
+                    imageUrl,
                     rating,
                     outOfStock,
                     quantity
@@ -56,7 +56,7 @@ const AllProducts = () => {
                       oldPrice={oldPrice}
                       subCategory={subCategory}
                       description={description}
-                      image={image}
+                      image={imageUrl}
                       rating={rating}
                       outOfStock={outOfStock}
                       quantity={quantity}
