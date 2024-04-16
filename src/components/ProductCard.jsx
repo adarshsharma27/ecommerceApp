@@ -98,7 +98,7 @@ const ProductCard = ({
         <div className="mt-4">
           <button
             className="block w-full rounded-full bg-[#198057]  text-white px-12 py-3 text-sm font-medium transition hover:scale-105 hover:bg-[#16a34a] disabled:cursor-not-allowed disabled:opacity-60"
-            disabled={outOfStock}
+            disabled={Boolean(outOfStock)}
             onClick={addProducts}
           >
             Add to Cart

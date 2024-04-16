@@ -332,6 +332,35 @@ const AddProducts = () => {
                   )}
                 </div>
               </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+              <div className="p-2 w-full">
+                <div className="relative">
+                  <label
+                    htmlFor={uId}
+                    className="leading-7  text-base font-semibold text-gray-600 dark:text-gray-200"
+                  >
+                    Stock Availability
+                  </label>
+                  <select
+                    id={uId}
+                    className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    name="outOfStock"
+                    onChange={productHandle}
+                  >
+                    <option value="">Please Select Stock</option>
+                    <option value="true">Available</option>
+                    <option value="false">Not Available</option>
+                  </select>
+                  {categoryErr && (
+                    <div className="pt-2">
+                      <span className="text-red-400 text-base font-semibold">
+                        Please Select Category
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
               <div className="p-2 w-full">
                 <div className="relative">
                   <label

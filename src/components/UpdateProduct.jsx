@@ -451,6 +451,47 @@ const UpdateProduct = () => {
                     )}
                   </div>
                 </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-2">
+                <div className="p-2 w-full">
+                  <div className="relative">
+                    <label
+                      htmlFor={uId}
+                      className="leading-7  text-base font-semibold text-gray-600 dark:text-gray-200"
+                    >
+                      Stock Availability
+                    </label>
+                    <select
+                      id={uId}
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      name="outOfStock"
+                      onChange={productHandle}
+                    >
+                      <option
+                        value={
+                          product.outOfStock === true
+                            ? "Unavailable"
+                            : "Available"
+                        }
+                      >
+                        {product.outOfStock === true
+                          ? "Unavailable"
+                          : "Available"}
+                      </option>
+                      <option value="">Please Select Stock</option>
+                      <option value="true">Available</option>
+                      <option value="false">Not Available</option>
+                    </select>
+                    {categoryErr && (
+                      <div className="pt-2">
+                        <span className="text-red-400 text-base font-semibold">
+                          Please Select Category
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
                 <div className="p-2 w-full">
                   <div className="relative">
                     <label
@@ -670,7 +711,6 @@ const UpdateProduct = () => {
                     </div>
                   </>
                 )}
-
                 <div className="py-4 w-full">
                   <button
                     className="flex md:w-80 mx-auto text-lg justify-center items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-[#16a34a] disabled:opacity-80 disabled:cursor-not-allowed"
