@@ -12,6 +12,7 @@ const DashBoard = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
+  const [updatedProducts, setUpdatedProducts] = useState(false);
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -38,7 +39,7 @@ const DashBoard = () => {
       } catch (error) {}
     };
     getProducts();
-  }, []);
+  }, [updatedProducts]);
   useEffect(() => {
     const getOrders = async () => {
       try {
@@ -136,7 +137,10 @@ const DashBoard = () => {
               Products Details
             </h1>
           </div>
-          <DashBoardProducts allProducts={allProducts} />
+          <DashBoardProducts
+            allProducts={allProducts}
+            setUpdatedProducts={setUpdatedProducts}
+          />
         </div>
       </section>
     </>

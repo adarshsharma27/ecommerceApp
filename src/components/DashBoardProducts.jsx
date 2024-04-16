@@ -3,8 +3,10 @@ import { LuTrash2, LuPencilLine, LuPlusCircle } from "react-icons/lu";
 import conf, { databases } from "../conf/config";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
-const DashBoardProducts = ({ allProducts }) => {
+
+const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
   const deleteProduct = async ($id) => {
+    setUpdatedProducts(true);
     try {
       await databases.deleteDocument(conf.databaseId, conf.collectionId, $id);
       toast.success("Product Deleted Successfully", {
@@ -106,7 +108,7 @@ const DashBoardProducts = ({ allProducts }) => {
                   {elements.title}
                 </td>
                 <td className="whitespace-rap   py-2 font-sm text-gray-900 dark:text-white">
-                  {elements.description?.slice(0,20)}..
+                  {elements.description?.slice(0, 20)}..
                 </td>
                 <td className="whitespace-nowrap  px-2 py-2 text-gray-700 dark:text-white text-transform: capitalize">
                   {elements.price}
@@ -130,12 +132,11 @@ const DashBoardProducts = ({ allProducts }) => {
                   {elements.subCategory}
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
-                <NavLink to ={`/updateproduct/${elements.$id}`}>
-                  <LuPencilLine
-                    className=" text-indigo-400 hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
-                    size={30}
-                    
-                  />
+                  <NavLink to={`/updateproduct/${elements.$id}`}>
+                    <LuPencilLine
+                      className=" text-indigo-400 hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
+                      size={30}
+                    />
                   </NavLink>
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
