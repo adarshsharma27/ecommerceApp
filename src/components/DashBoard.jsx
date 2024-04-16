@@ -29,6 +29,7 @@ const DashBoard = () => {
     getUsers();
   }, []);
   useEffect(() => {
+    setUpdatedProducts(false);
     const getProducts = async () => {
       try {
         const resp = await databases.listDocuments(
@@ -152,6 +153,7 @@ const DashBoard = () => {
           <DashBoardProducts
             allProducts={allProducts}
             setUpdatedProducts={setUpdatedProducts}
+            updatedProducts={updatedProducts}
           />
         </div>
       </section>
