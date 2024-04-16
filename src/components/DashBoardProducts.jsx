@@ -81,7 +81,7 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
                 SubCategory
               </th>
               <th className="whitespace-nowrap text-center  py-2 text-lg font-semibold text-gray-900 dark:text-white">
-                <NavLink to="/addproducts">
+                <NavLink to="/addproducts" title="Add Product">
                   <LuPlusCircle
                     className="text-[#198057] hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
                     size={30}

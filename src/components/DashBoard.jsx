@@ -5,6 +5,8 @@ import { FaUsers, FaIdCardClip, FaCartArrowDown } from "react-icons/fa6";
 import conf, { databases } from "../conf/config";
 import DashBoardOrders from "./DashBoardOrders";
 import DashBoardProducts from "./DashBoardProducts";
+import { NavLink } from "react-router-dom";
+import { LuPlusCircle } from "react-icons/lu";
 const DashBoard = () => {
   const [users, setUsers] = useState([]);
   const [products, setProducts] = useState([]);
@@ -132,10 +134,20 @@ const DashBoard = () => {
             </h1>
           </div>
           <DashBoardOrders allOrders={allOrders} />
-          <div className="flex flex-wrap sm:flex-row flex-col pt-6">
+          <div className="flex flex-wrap items-start justify-between sm:flex-row flex-col pt-6">
             <h1 className="sm:w-2/5 text-gray-900 font-bold font-montserrat text-3xl  sm:mb-0 dark:text-white">
               Products Details
             </h1>
+            <NavLink
+              to="/addproducts"
+              className="flex justify-center items-center gap-1 font-bold  transition hover:scale-105"
+            >
+              AddProducts{" "}
+              <LuPlusCircle
+                className="text-[#198057] hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
+                size={30}
+              />
+            </NavLink>
           </div>
           <DashBoardProducts
             allProducts={allProducts}
