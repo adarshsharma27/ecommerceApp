@@ -19,8 +19,6 @@ const AddProducts = () => {
   const productHandle = (e) => {
     setProduct({
       ...product,
-      imageUrl,
-      uploadFileId,
       [e.target.name]: e.target.value,
     });
   };
@@ -63,9 +61,7 @@ const AddProducts = () => {
           conf.databaseId,
           conf.collectionId,
           ID.unique(),
-          product
-          // {...product, imageUrl,
-          //   uploadFileId,}
+          { ...product, imageUrl, uploadFileId }
         );
         toast.success("Product Published Successfully", {
           duration: 4000,
