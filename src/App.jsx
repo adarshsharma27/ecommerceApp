@@ -17,6 +17,7 @@ import SubCategories from "./components/SubCategories";
 import DashBoard from "./components/DashBoard";
 import CheckOutPage from "./components/CheckOutPage";
 import AddProducts from "./components/AddProducts";
+import UpdateProduct from "./components/UpdateProduct";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/addproducts" element={<AddProducts />} />
+        <Route path="/updateproduct/:id" element={<UpdateProduct />} />
       </Routes>
       <Toaster />
       <Footer />

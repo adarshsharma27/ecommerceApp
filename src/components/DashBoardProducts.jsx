@@ -97,7 +97,7 @@ const DashBoardProducts = ({ allProducts }) => {
               >
                 <td className="whitespace-nowrap px-2 py-2 font-medium text-gray-900 dark:text-white">
                   <img
-                    src={elements.image}
+                    src={elements.imageUrl}
                     alt={elements.title}
                     className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
                   />
@@ -130,11 +130,13 @@ const DashBoardProducts = ({ allProducts }) => {
                   {elements.subCategory}
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
+                <NavLink to ={`/updateproduct/${elements.$id}`}>
                   <LuPencilLine
                     className=" text-indigo-400 hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
                     size={30}
-                    onClick={() => {}}
+                    
                   />
+                  </NavLink>
                 </td>
                 <td className="whitespace-nowrap px-2 py-2 text-gray-700 dark:text-white">
                   <LuTrash2

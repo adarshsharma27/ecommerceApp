@@ -67,7 +67,7 @@ const AddProducts = () => {
           // {...product, imageUrl,
           //   uploadFileId,}
         );
-        toast.success("Product Deleted Successfully", {
+        toast.success("Product Published Successfully", {
           duration: 4000,
           position: "bottom-right",
           style: {
@@ -120,7 +120,7 @@ const AddProducts = () => {
           padding: "20px",
           fontWeight: "700",
           boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-          borderBottom: "3px solid #4F46E5",
+          borderBottom: "3px solid #F17171",
           borderRadius: "3px",
           fontFamily: "Outfit, sans-serif",
         },
@@ -135,7 +135,7 @@ const AddProducts = () => {
           padding: "20px",
           fontWeight: "700",
           boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-          borderBottom: "3px solid #4F46E5",
+          borderBottom: "3px solid #F17171",
           borderRadius: "3px",
           fontFamily: "Outfit, sans-serif",
         },
@@ -165,7 +165,7 @@ const AddProducts = () => {
               padding: "20px",
               fontWeight: "700",
               boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-              borderBottom: "3px solid #4F46E5",
+              borderBottom: "3px solid #F17171",
               borderRadius: "3px",
               fontFamily: "Outfit, sans-serif",
             },
@@ -205,7 +205,7 @@ const AddProducts = () => {
             padding: "20px",
             fontWeight: "700",
             boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
-            borderBottom: "3px solid #4F46E5",
+            borderBottom: "3px solid #F17171",
             borderRadius: "3px",
             fontFamily: "Outfit, sans-serif",
           },
