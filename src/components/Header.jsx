@@ -84,13 +84,21 @@ const Header = () => {
                 </NavLink>
               )}
             {userDetails ? (
-              <NavLink
-                to="/login"
-                className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
-                onClick={LogOut}
-              >
-                LogOut
-              </NavLink>
+              <>
+                <NavLink
+                  to={`/wishlist/${userDetails?.userId}`}
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                >
+                  WishList
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                  onClick={LogOut}
+                >
+                  LogOut
+                </NavLink>
+              </>
             ) : (
               <>
                 <NavLink

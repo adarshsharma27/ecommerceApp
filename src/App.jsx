@@ -41,7 +41,7 @@ function App() {
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/addproducts" element={<AddProducts />} />
         <Route path="/updateproduct/:id" element={<UpdateProduct />} />
-        <Route path="/wishlist/:userId/:id" element={<WishListProduct />} />
+        <Route path="/wishlist/:userId" element={<WishListProduct />} />
       </Routes>
       <Toaster />
       <Footer />

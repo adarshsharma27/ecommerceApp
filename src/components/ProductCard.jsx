@@ -94,7 +94,7 @@ const ProductCard = ({
         },
       });
 
-      navigate(`/wishlist/${userDetails?.userId}/${$id}`);
+      navigate(`/wishlist/${userDetails?.userId}`);
     } catch (error) {
       toast.error("Product Already In WhishList", {
         duration: 4000,
