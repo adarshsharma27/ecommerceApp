@@ -96,7 +96,7 @@ const UpdateProduct = () => {
           rating: product.rating,
           oldPrice: product.oldPrice,
           price: product.price,
-          rating: product.rating,
+          outOfStock: product.outOfStock,
           quantity: product.quantity,
           description: product.description,
           imageUrl: imageUrl,
