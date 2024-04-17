@@ -18,6 +18,7 @@ import DashBoard from "./components/DashBoard";
 import CheckOutPage from "./components/CheckOutPage";
 import AddProducts from "./components/AddProducts";
 import UpdateProduct from "./components/UpdateProduct";
+import WishListProduct from "./components/WishListProduct";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/addproducts" element={<AddProducts />} />
         <Route path="/updateproduct/:id" element={<UpdateProduct />} />
+        <Route path="/wishlist/:userId/:id" element={<WishListProduct />} />
       </Routes>
       <Toaster />
       <Footer />

@@ -7,6 +7,7 @@ const conf = {
   bucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
   usersCollectionId: String(import.meta.env.VITE_APPWRITE_USERSCOLLECTION_ID),
   ordersCollectionId: String(import.meta.env.VITE_APPWRITE_ORDERSCOLLECTION_ID),
+  wishListCollectionId: String(import.meta.env.VITE_APPWRITE_WISHLISTCOLLECTION_ID),
   adminUserId: String(import.meta.env.VITE_APPWRITE_ADMINUSER_ID),
   adminUserEmail: String(import.meta.env.VITE_APPWRITE_ADMINUSER_EMAIL),
   guestUserPassword:String(import.meta.env.VITE_APPWRITE_GUESTUSER_PASSWORD),
