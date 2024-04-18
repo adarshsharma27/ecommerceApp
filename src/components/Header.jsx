@@ -251,7 +251,7 @@ const Header = () => {
             </NavLink>
 
             <NavLink
-              to="/All Products"
+              to="/allproducts"
               className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
               onClick={() => toggleNavigation()}
             >
@@ -261,23 +261,34 @@ const Header = () => {
             <NavLink
               to="/bestsellers"
               className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
+              onClick={() => toggleNavigation()}
             >
               Best Sellers
             </NavLink>
 
             {userDetails ? (
-              <NavLink
-                to="/login"
-                className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
-                onClick={""}
-              >
-                LogOut
-              </NavLink>
+              <>
+                <NavLink
+                  to={`/wishlist/${userDetails?.userId}`}
+                  className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
+                  onClick={() => toggleNavigation()}
+                >
+                  WishList
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
+                  onClick={() => toggleNavigation()}
+                >
+                  LogOut
+                </NavLink>
+              </>
             ) : (
               <>
                 <NavLink
                   to="/signUp"
                   className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
+                  onClick={() => toggleNavigation()}
                 >
                   SignUp
                 </NavLink>
@@ -285,6 +296,7 @@ const Header = () => {
                 <NavLink
                   to="/login"
                   className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500 hover:border-[#16a34a]  font-semibold"
+                  onClick={() => toggleNavigation()}
                 >
                   Login
                 </NavLink>
