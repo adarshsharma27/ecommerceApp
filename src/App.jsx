@@ -20,6 +20,7 @@ import AddProducts from "./components/AddProducts";
 import UpdateProduct from "./components/UpdateProduct";
 import WishListProduct from "./components/WishListProduct";
 import ScrollTop from "./utlis/ScrollTop";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/addproducts" element={<AddProducts />} />
         <Route path="/updateproduct/:id" element={<UpdateProduct />} />
         <Route path="/wishlist/:userId" element={<WishListProduct />} />
+        <Route path="/userprofile" element={<UserProfile />} />
       </Routes>
       <Toaster />
       <ScrollTop/>

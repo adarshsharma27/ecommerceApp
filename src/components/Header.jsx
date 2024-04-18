@@ -98,6 +98,14 @@ const Header = () => {
                 >
                   LogOut
                 </NavLink>
+                <Link
+                  to="/userprofile"
+                  className="mr-5 hover:text-gray-900 dark:text-white font-semibold"
+                >
+                  <div className="w-8 h-8 text-white flex justify-center items-center bg-[#16a34a] rounded-full text-center font-bold">
+                    {userDetails?.providerUid?.slice(0, 1)?.toUpperCase()}
+                  </div>
+                </Link>
               </>
             ) : (
               <>
@@ -282,6 +290,15 @@ const Header = () => {
                 >
                   LogOut
                 </NavLink>
+                <Link
+                  to="/userprofile"
+                  className="hover:text-[#16a34a] dark:text-white py-2 border-b-2 w-10/12 border-gray-500  hover:border-[#16a34a]  font-semibold"
+                  onClick={() => toggleNavigation()}
+                >
+                  <div className="w-8 h-8 mx-auto text-white flex justify-center items-center bg-[#16a34a] rounded-full text-center font-bold">
+                    {userDetails?.providerUid?.slice(0, 1)?.toUpperCase()}
+                  </div>
+                </Link>
               </>
             ) : (
               <>
