@@ -19,6 +19,7 @@ import CheckOutPage from "./components/CheckOutPage";
 import AddProducts from "./components/AddProducts";
 import UpdateProduct from "./components/UpdateProduct";
 import WishListProduct from "./components/WishListProduct";
+import ScrollTop from "./utlis/ScrollTop";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/wishlist/:userId" element={<WishListProduct />} />
       </Routes>
       <Toaster />
+      <ScrollTop/>
       <Footer />
     </>
   );
