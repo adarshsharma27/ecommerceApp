@@ -21,6 +21,7 @@ import UpdateProduct from "./components/UpdateProduct";
 import WishListProduct from "./components/WishListProduct";
 import ScrollTop from "./utlis/ScrollTop";
 import UserProfile from "./components/UserProfile";
+import UpdateUserProfile from "./components/UpdateUserProfile";
 
 function App() {
   return (
@@ -45,9 +46,10 @@ function App() {
         <Route path="/updateproduct/:id" element={<UpdateProduct />} />
         <Route path="/wishlist/:userId" element={<WishListProduct />} />
         <Route path="/userprofile" element={<UserProfile />} />
+        <Route path="/update/userprofile" element={<UpdateUserProfile />} />
       </Routes>
       <Toaster />
-      <ScrollTop/>
+      <ScrollTop />
       <Footer />
     </>
   );

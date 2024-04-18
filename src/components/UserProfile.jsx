@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { account } from "../conf/config";
 import { LuPencilLine } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [userProfile, setUserProfile] = useState([]);
@@ -19,38 +20,12 @@ const UserProfile = () => {
     getUserProfile();
   }, []);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-
-    document.body.style.overflow = "auto";
-  };
-
-  const handleSave = async () => {
-    try {
-      await account.updatePrefs({
-        name,
-        about,
-        address,
-      });
-      getUserProfile();
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    }
-    console.log("Saving changes...");
-    closeModal();
-  };
   return (
     <>
       <section className="text-gray-600 font-outfit dark:bg-slate-700">
         <div className="container px-5 py-12 mx-auto">
           <div className="flex flex-col">
-            <div className="h-1 bg-gray-200 rounded overflow-hidden">
+            <div className="h-1 bg-gray-200 rounded">
               <div className="w-24 h-full bg-[#16a34a]"></div>
             </div>
             <div className="flex flex-wrap sm:flex-row flex-col py-6">
@@ -65,7 +40,7 @@ const UserProfile = () => {
                 <div className="flex flex-col">
                   <img
                     className="h-44 w-44 rounded-full mr-4 border-4  p-1 border-[#198057] "
-                    src="images/avatar.svg"
+                    src={userProfile.prefs?.imageUrl || "images/avatar.svg"}
                     alt="User"
                   />
                   <p className="font-bold text-gray-800 text-xl">
@@ -75,11 +50,12 @@ const UserProfile = () => {
                     {userProfile.email}
                   </p>
                 </div>
-                <LuPencilLine
-                  onClick={openModal}
-                  className=" text-[#16a34a] transition hover:scale-110  hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
-                  size={30}
-                />
+                <Link to="/update/userprofile">
+                  <LuPencilLine
+                    className=" text-[#16a34a] transition hover:scale-110  hover:text-[#16a34a] hover:cursor-pointer dark:text-white"
+                    size={30}
+                  />
+                </Link>
               </div>
               <div className="border-t border-gray-200">
                 <div className="px-6 py-4">
@@ -99,80 +75,6 @@ const UserProfile = () => {
               </div>
               <div className="flex justify-center items-center py-4"></div>
             </div>
-
-            {/* Modal */}
-            {isModalOpen && (
-              <div className="fixed inset-0 flex items-center justify-center z-50 w-full">
-                <div className="fixed inset-0 bg-black opacity-50"></div>
-                <div className="bg-white rounded-lg shadow-lg p-6 absolute  w-[60%]">
-                  <h2 className="text-gray-800 font-semibold text-lg mb-3">
-                    Edit Profile
-                  </h2>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Name:
-                    </label>
-                    <input
-                      type="text"
-                      className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
-                      value={name}
-                      placeholder="Please Enter Name"
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Email:
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
-                      value={userProfile.email}
-                      placeholder="Please Enter Email"
-                      disabled={true}
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      About Me:
-                    </label>
-                    <textarea
-                      className="w-full rounded-3xl  border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
-                      value={about}
-                      placeholder="Please Enter Bio"
-                      onChange={(e) => setAbout(e.target.value)}
-                    ></textarea>
-                  </div>
-                  <div className="mb-4">
-                    <label className="block text-gray-700 text-sm font-bold mb-2">
-                      Address:
-                    </label>
-                    <textarea
-                      className="w-full rounded-3xl  border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
-                      value={address}
-                      placeholder="Please Enter Address"
-                      onChange={(e) => setAddress(e.target.value)}
-                    ></textarea>
-                  </div>
-
-                  <div className="flex justify-end py-2">
-                    <button
-                      onClick={handleSave}
-                      className="bg-[#198057]  cursor-pointer hover:bg-[#16a34a] text-white px-12 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-[#16a34a] focus:ring-opacity-50 disabled:cursor-not-allowed disabled:opacity-60"
-                      disabled={!name || !about || !address}
-                    >
-                      Save
-                    </button>
-                    <button
-                      onClick={closeModal}
-                      className="bg-gray-300 cursor-pointer hover:bg-gray-400 text-gray-800 px-12 py-3 rounded-full ml-2 focus:outline-none focus:ring-2 focus:ring-[#16a34a] focus:ring-opacity-50"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </section>
