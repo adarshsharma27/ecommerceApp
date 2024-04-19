@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import conf, { account, storage, ID } from "../conf/config";
-import { LuPencilLine, LuX } from "react-icons/lu";
+import { LuX } from "react-icons/lu";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
@@ -14,8 +14,9 @@ const UpdateUserProfile = () => {
       setName(resp.prefs?.about);
       setAddress(resp.prefs?.address);
       setImageUrl(resp.prefs?.imageUrl);
-      console.log(resp);
-      setHideFileUpload(false);
+      if (resp.prefs?.imageUrl === "") {
+        setHideFileUpload(true);
+      } else setHideFileUpload(false);
     } catch (error) {}
   };
   useEffect(() => {
