@@ -22,12 +22,30 @@ import WishListProduct from "./components/WishListProduct";
 import ScrollTop from "./utlis/ScrollTop";
 import UserProfile from "./components/UserProfile";
 import UpdateUserProfile from "./components/UpdateUserProfile";
+import { useSelector } from "react-redux";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 function App() {
+  const userDetails = useSelector(
+    (state) => state.AuthenticationReducer.userData
+  );
   return (
     <>
       <Header />
       <Routes>
+        <Route element={<ProtectedRoutes isAuthenticated={userDetails} />}>
+          <Route path="/cart" element={<Cart />} />
+
+          <Route path="/category/:id" element={<SubCategories />} />
+          <Route path="/checkout" element={<CheckOutPage />} />
+
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/addproducts" element={<AddProducts />} />
+          <Route path="/updateproduct/:id" element={<UpdateProduct />} />
+          <Route path="/wishlist/:userId" element={<WishListProduct />} />
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/update/userprofile" element={<UpdateUserProfile />} />
+        </Route>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/allproducts" element={<AllProducts />} />
@@ -35,18 +53,9 @@ function App() {
         <Route path="/trending" element={<TrendingProducts />} />
         <Route path="/popular" element={<PopularProducts />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
-        <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/category/:id" element={<SubCategories />} />
-        <Route path="/checkout" element={<CheckOutPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/addproducts" element={<AddProducts />} />
-        <Route path="/updateproduct/:id" element={<UpdateProduct />} />
-        <Route path="/wishlist/:userId" element={<WishListProduct />} />
-        <Route path="/userprofile" element={<UserProfile />} />
-        <Route path="/update/userprofile" element={<UpdateUserProfile />} />
       </Routes>
       <Toaster />
       <ScrollTop />
