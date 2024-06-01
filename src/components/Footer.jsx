@@ -21,7 +21,7 @@ const Footer = () => {
           <ul className="mt-6 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
             <li>
               <Link
-                className="text-gray-700  transition hover:text-gray-700/75 dark:text-white"
+                className="text-gray-700  transition hover:text-gray-700/75 dark:text-white text-base"
                 to="/signup"
               >
                 SignUp
@@ -30,7 +30,7 @@ const Footer = () => {
 
             <li>
               <Link
-                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white"
+                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white text-base"
                 to="/login"
               >
                 Login
@@ -39,7 +39,7 @@ const Footer = () => {
 
             <li>
               <Link
-                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white"
+                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white text-base"
                 to="/allproducts"
               >
                 AllProducts
@@ -48,7 +48,7 @@ const Footer = () => {
 
             <li>
               <Link
-                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white"
+                className="text-gray-700 transition hover:text-gray-700/75 dark:text-white text-base"
                 to="/bestsellers"
               >
                 BestSellers

@@ -7,12 +7,12 @@ const AboutUs = () => {
     <>
       <Hero />
       <Services />
-      <section>
+      <section className="dark:bg-slate-700">
         <div className="mx-auto max-w-screen-2xl px-4 py-8 sm:px-6 lg:px-8 font-outfit">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div className="bg-[#198057] p-8 md:p-12 lg:px-16 lg:py-24">
               <div className="mx-auto max-w-xl text-center">
-                <h2 className="text-2xl font-bold text-white md:text-3xl">
+                <h2 className="text-2xl font-bold text-white md:text-3xl dark:text-white">
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit
                 </h2>
 

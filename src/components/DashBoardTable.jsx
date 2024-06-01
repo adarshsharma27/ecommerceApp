@@ -1,7 +1,6 @@
 import React from "react";
 
 const DashBoardTable = ({ users }) => {
- 
   return (
     <>
       <div className="overflow-x-auto overflow-y-scroll h-[80vh] container my-6 mx-auto rounded-lg border border-gray-200  dark:bg-[#313E51] dark:shadow-2xl card-shadow-custom dark:text-white">
@@ -23,16 +22,16 @@ const DashBoardTable = ({ users }) => {
           <tbody className="divide-y divide-gray-200">
             {users?.map((elements) => (
               <tr
-                className="even:bg-gray-50 dark:bg-slate-600 text-center"
+                className="even:bg-gray-50 dark:even:bg-gray-400 dark:bg-slate-600 text-center"
                 key={elements.$id}
               >
-                <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900 dark:text-white">
+                <td className="whitespace-nowrap px-4 py-2 text-base   text-gray-900 dark:text-white">
                   {elements.$id}
                 </td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-white text-transform: capitalize">
+                <td className="whitespace-nowrap px-4 py-2 text-base text-gray-700 dark:text-white text-transform: capitalize">
                   {elements.name}
                 </td>
-                <td className="whitespace-nowrap px-4 py-2 text-gray-700 dark:text-white">
+                <td className="whitespace-nowrap px-4 py-2 text-base text-gray-700 dark:text-white">
                   {elements.email}
                 </td>
               </tr>

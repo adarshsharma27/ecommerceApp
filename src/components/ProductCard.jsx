@@ -157,7 +157,7 @@ const ProductCard = ({
       key={$id}
     >
       {wishList ? (
-        <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-[#198057] hover:scale-101 ">
+        <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-[#198057] hover:scale-101 dark:bg-[#2D3949]">
           <span className="sr-only">Wishlist</span>
 
           <svg
@@ -166,7 +166,7 @@ const ProductCard = ({
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-6 w-6 hover:scale-105"
+            className="h-6 w-6 hover:scale-105 text-white"
             onClick={() => removeFromWishList()}
           >
             <path
@@ -177,7 +177,7 @@ const ProductCard = ({
           </svg>
         </button>
       ) : (
-        <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-[#198057] ">
+        <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-[#198057]  dark:bg-[#2D3949]">
           <span className="sr-only">Wishlist</span>
 
           <svg
@@ -186,7 +186,7 @@ const ProductCard = ({
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-6 w-6"
+            className="h-6 w-6 dark:text-white"
             onClick={() => addToWishList()}
           >
             <path
@@ -206,7 +206,7 @@ const ProductCard = ({
         />
       </NavLink>
 
-      <div className="relative  bg-white p-6">
+      <div className="relative p-6">
         <div className="flex justify-between items-center">
           <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
             {subCategory}
@@ -214,11 +214,13 @@ const ProductCard = ({
           <Rating rating={rating} />
         </div>
 
-        <h3 className="mt-4 text-lg font-bold text-gray-900">{title}</h3>
+        <h3 className="mt-4 text-lg font-bold text-gray-900 dark:text-white">
+          {title}
+        </h3>
 
-        <p className="mt-1.5 text-lg font-bold text-gray-700">
+        <p className="mt-1.5 text-lg font-bold text-gray-700 dark:text-gray-200">
           ${price}
-          <span className="line-through text-gray-500 font-bold px-1 text-lg">
+          <span className="line-through text-gray-500 font-bold px-1 text-lg dark:text-gray-400">
             ${oldPrice}
           </span>
         </p>

@@ -124,7 +124,7 @@ const LogIn = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2  lg:px-16 lg:py-16 p-4 font-outfit">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2  lg:px-16 lg:py-16 p-4 font-outfit dark:bg-slate-700">
         <div className="">
           <img
             alt="profileLinks"
@@ -133,24 +133,28 @@ const LogIn = () => {
           />
         </div>
         <div>
-          <div className="p-6 rounded-lg card-shadow-custom">
+          <div className="p-6 rounded-lg card-shadow-custom  dark:shadow-2xl">
             <div className="mx-auto max-w-lg text-left">
-              <h1 className="text-2xl font-bold sm:text-2xl">Login!</h1>
+              <h1 className="text-2xl font-bold sm:text-2xl dark:text-white">
+                Login!
+              </h1>
 
-              <p className="mt-2 text-gray-500">LogIn to sabkaBazzar!</p>
+              <p className="mt-2 text-base text-gray-500 dark:text-gray-400">
+                LogIn to sabkaBazzar!
+              </p>
             </div>
             <div className="mx-auto mb-0 mt-4 max-w-lg space-y-4">
               <div>
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium text-gray-600"
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300"
                 >
                   Email
                 </label>
                 <div className="relative my-2">
                   <input
                     type="email"
-                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     placeholder="Please Enter Email"
                     value={email}
                     onChange={(e) => {
@@ -171,14 +175,14 @@ const LogIn = () => {
                 )}
                 <label
                   htmlFor="name"
-                  className="text-sm font-medium text-gray-600"
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300"
                 >
                   Password
                 </label>
                 <div className="relative my-2">
                   <input
                     type={showPassword ? "text" : "password"}
-                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     placeholder="Please Enter Password"
                     value={password}
                     onChange={(e) => {
@@ -222,7 +226,7 @@ const LogIn = () => {
                   className="inline-flex w-full justify-center items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-[#16a34a]"
                   onClick={LogIn}
                 >
-                  <span className="text-medium font-medium"> LogIn </span>
+                  <span className="text-base font-semibold"> LogIn </span>
 
                   <svg
                     className="h-5 w-5 rtl:rotate-180"
@@ -245,7 +249,7 @@ const LogIn = () => {
                   className="inline-flex w-full justify-center items-center gap-2 rounded-full border border-gray-700 bg-gray-700 px-8 py-3 text-white hover:bg-transparent hover:text-gray-900 focus:outline-none focus:ring active:text-gray-500"
                   onClick={loginAsGuest}
                 >
-                  <span className="text-md font-medium">LogIn As Guest</span>
+                  <span className="text-base semibold">LogIn As Guest</span>
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

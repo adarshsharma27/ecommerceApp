@@ -101,7 +101,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:px-16 lg:py-4 p-4 font-outfit">
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-2 lg:px-16 lg:py-4 p-4 font-outfit dark:bg-slate-700">
         <div className="rounded-lg ">
           <img
             alt="profileLinks"
@@ -110,24 +110,28 @@ const SignUp = () => {
           />
         </div>
         <div>
-          <div className="p-6 rounded-lg card-shadow-custom col-span-1">
+          <div className="p-6 rounded-lg card-shadow-custom col-span-1  dark:shadow-2xl">
             <div className="mx-auto max-w-lg text-left">
-              <h1 className="text-2xl font-bold sm:text-2xl">Sign Up!</h1>
+              <h1 className="text-2xl font-bold sm:text-2xl dark:text-white">
+                Sign Up!
+              </h1>
 
-              <p className="mt-2 text-gray-500">Welcome to sabkaBazzar!</p>
+              <p className="mt-2 text-gray-500 dark:text-gray-400 text-base">
+                Welcome to sabkaBazzar!
+              </p>
             </div>
             <div className="mx-auto mb-0 mt-4 max-w-lg space-y-4">
               <div>
                 <label
                   htmlFor="name"
-                  className="text-sm font-medium text-gray-600"
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300"
                 >
                   Name
                 </label>
                 <div className="relative my-2">
                   <input
                     type="text"
-                    className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     placeholder="Please Enter Name"
                     value={name}
                     onChange={(e) => {
@@ -142,21 +146,21 @@ const SignUp = () => {
                 {nameErr && (
                   <div className="pt-2">
                     <span className="text-red-400 text-base font-semibold">
-                    Please Enter Name
+                      Please Enter Name
                     </span>
                   </div>
                 )}
 
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium text-gray-600"
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300"
                 >
                   Email
                 </label>
                 <div className="relative my-2">
                   <input
                     type="email"
-                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     placeholder="Please Enter Email"
                     value={email}
                     onChange={(e) => {
@@ -177,14 +181,14 @@ const SignUp = () => {
                 )}
                 <label
                   htmlFor="Password"
-                  className="text-sm font-medium text-gray-600"
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300"
                 >
                   Password
                 </label>
                 <div className="relative my-2">
                   <input
                     type={showPassword ? "text" : "password"}
-                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-full border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     placeholder="Please Enter Password"
                     value={password}
                     onChange={(e) => {
@@ -229,7 +233,7 @@ const SignUp = () => {
                   className="inline-flex w-full justify-center items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-[#16a34a]"
                   onClick={SignUp}
                 >
-                  <span className="text-medium font-medium"> SignUp </span>
+                  <span className="text-base font-semibold"> SignUp </span>
 
                   <svg
                     className="h-5 w-5 rtl:rotate-180"
@@ -247,7 +251,7 @@ const SignUp = () => {
                   </svg>
                 </button>
 
-                <p className="text-md text-center pt-2 text-gray-700">
+                <p className="text-sm text-center pt-2 text-gray-700 dark:text-gray-200">
                   Already have an account?
                   <NavLink
                     className="text-blue-500 font-bold text-md hover:text-[#16a34a]"

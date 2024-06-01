@@ -35,18 +35,18 @@ const UserProfile = () => {
             </div>
           </div>
           <div className="flex justify-center items-center">
-            <div className="bg-white rounded-xl card-shadow-custom w-full md:max-w-4xl">
+            <div className="bg-white rounded-xl card-shadow-custom w-full md:max-w-4xl dark:bg-[#3C4D67]">
               <div className="flex justify-between px-6 items-center py-6">
                 <div className="flex flex-col">
                   <img
-                    className="h-44 w-44 rounded-full mr-4 border-4  p-1 border-[#198057] "
+                    className="h-44 w-44 rounded-full mr-4 border-4  p-1 border-[#198057]  "
                     src={userProfile.prefs?.imageUrl || "images/avatar.svg"}
                     alt="User"
                   />
-                  <p className="font-bold text-gray-800 text-xl">
+                  <p className="font-bold text-gray-800 text-xl dark:text-white">
                     {userProfile.prefs?.name || userProfile.name}
                   </p>
-                  <p className="font-semibold text-gray-600 text-medium">
+                  <p className="font-semibold text-gray-600 text-base dark:text-gray-400">
                     {userProfile.email}
                   </p>
                 </div>
@@ -59,18 +59,22 @@ const UserProfile = () => {
               </div>
               <div className="border-t border-gray-200">
                 <div className="px-6 py-4">
-                  <h2 className="text-gray-800 font-semibold text-lg mb-3">
+                  <h2 className="text-gray-800 font-semibold text-lg mb-3 dark:text-white">
                     About Me
                   </h2>
-                  <p className="text-gray-600">{userProfile.prefs?.about}</p>
+                  <p className="text-gray-600 text-base dark:text-gray-400">
+                    {userProfile.prefs?.about}
+                  </p>
                 </div>
               </div>
               <div className="border-t border-gray-200">
                 <div className="px-6 py-4">
-                  <h2 className="text-gray-800 font-semibold text-lg mb-3">
+                  <h2 className="text-gray-800 font-semibold text-lg mb-3 dark:text-white">
                     Contact Information
                   </h2>
-                  <p className="text-gray-600">{userProfile.prefs?.address}</p>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    {userProfile.prefs?.address}
+                  </p>
                 </div>
               </div>
               <div className="flex justify-center items-center py-4"></div>

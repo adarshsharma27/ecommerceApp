@@ -24,14 +24,37 @@ import UserProfile from "./components/UserProfile";
 import UpdateUserProfile from "./components/UpdateUserProfile";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./ProtectedRoutes";
+import { useEffect ,useState} from "react";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const mode = localStorage.getItem("mode");
+    if (mode === "true") {
+      let darkmode = document.querySelector("html");
+      darkmode.classList.add("dark");
+      setDarkMode(mode);
+      localStorage.setItem("mode", mode);
+    } else {
+      let darkmode = document.querySelector("html");
+      darkmode.classList.remove("dark");
+      setDarkMode(false);
+      localStorage.setItem("mode", false);
+    }
+  }, []);
+
+  const addDarkMode = () => {
+    let darkmode = document.querySelector("html");
+    darkmode.classList.toggle("dark");
+    setDarkMode(!darkMode);
+    localStorage.setItem("mode", !darkMode);
+  };
   const userDetails = useSelector(
     (state) => state.AuthenticationReducer.userData
   );
   return (
     <>
-      <Header />
+      <Header addDarkMode={addDarkMode} darkMode={darkMode} />
       <Routes>
         <Route element={<ProtectedRoutes isAuthenticated={userDetails} />}>
           <Route path="/cart" element={<Cart />} />
