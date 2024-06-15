@@ -14,7 +14,7 @@ const CheckOutPage = () => {
   const [pinCode, setPinCode] = useState();
   const [address, setAddress] = useState();
   const cart = useSelector((state) => state.ProductsReducer.productsData);
-  const {userId} = useSelector(
+  const { userId } = useSelector(
     (state) => state.AuthenticationReducer.userData
   );
   const [total, setTotal] = useState("");
@@ -62,10 +62,10 @@ const CheckOutPage = () => {
   return (
     <>
       <section>
-        <div className="container px-4 py-8 medium:px-6 medium:py-12 lg:px-8 font-outfit">
+        <div className="container px-4 py-8 medium:px-6 medium:py-12 lg:px-8 font-outfit dark:bg-slate-700">
           <div className="mx-auto container">
             <header className="text-center">
-              <h1 className="text-xl font-bold text-gray-900 medium:text-3xl">
+              <h1 className="text-xl font-bold text-gray-900 lg:text-2xl dark:text-white">
                 Checkout
               </h1>
             </header>
@@ -78,7 +78,7 @@ const CheckOutPage = () => {
                         Name
                       </label>
                       <input
-                        className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                        className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                         placeholder="Name"
                         type="text"
                         id="name"
@@ -92,7 +92,7 @@ const CheckOutPage = () => {
                         Email
                       </label>
                       <input
-                        className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                        className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                         placeholder="Email address"
                         type="email"
                         id="email"
@@ -110,7 +110,7 @@ const CheckOutPage = () => {
                           Phone
                         </label>
                         <input
-                          className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                          className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                           placeholder="Phone Number"
                           type="tel"
                           id="phone"
@@ -126,7 +126,7 @@ const CheckOutPage = () => {
                           PinCode
                         </label>
                         <input
-                          className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                          className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                           placeholder="PinCode"
                           type="text"
                           id="pinCode"
@@ -145,7 +145,7 @@ const CheckOutPage = () => {
                       </label>
 
                       <textarea
-                        className="w-full rounded-3xl text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                        className="w-full rounded-3xl text-gray-700 border-gray-200 p-4 pe-12 text-sm shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                         placeholder="Address"
                         rows="8"
                         id="message"
@@ -160,20 +160,28 @@ const CheckOutPage = () => {
                 </div>
 
                 <div className="px-4 w-full md:border-l-2 border-l-0 h-full border-gray-100 ">
-                  <h1 className="text-xl font-bold text-gray-900 medium:text-3xl py-4">
+                  <h1 className="text-xl font-bold text-gray-900 medium:text-3xl py-4 dark:text-white">
                     Cart Totals
                   </h1>
                   <div className="space-y-4">
-                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl  py-1">
+                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl  py-1 dark:text-gray-200">
                       SubTotal:
-                      <span className="text-gray-600 px-4">{total}</span>
+                      <span className="text-gray-600 px-4 dark:text-white">
+                        {total}
+                      </span>
                     </h2>
-                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl">
-                      Shipping:<span className="text-gray-600  px-4">Free</span>
+                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl dark:text-gray-200">
+                      Shipping:
+                      <span className="text-gray-600  px-4 dark:text-white">
+                        Free
+                      </span>
                     </h2>
-                    <div className="border-t-2 w-full border-gray-400 py-4">
-                      <h2 className="text-xl font-bold text-gray-900 medium:text-3xl flex justify-between">
-                        Total:<span className="text-gray-600">{total}</span>
+                    <div className="border-t-2 w-full border-gray-400 py-4 ">
+                      <h2 className="text-xl font-bold text-gray-900 medium:text-3xl flex justify-between dark:text-gray-200">
+                        Total:
+                        <span className="text-gray-600 dark:text-white">
+                          {total}
+                        </span>
                       </h2>
                     </div>
 
