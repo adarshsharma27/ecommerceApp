@@ -79,7 +79,7 @@ const ProductDetails = () => {
   };
   return (
     <>
-      <section className="text-gray-600 font-outfit overflow-hidden">
+      <section className="text-gray-600 font-outfit overflow-hidden dark:bg-slate-700">
         <div className="container px-5 py-24 mx-auto">
           <div className="lg:w-4/5 mx-auto flex flex-wrap">
             <img
@@ -91,16 +91,18 @@ const ProductDetails = () => {
               <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">
                 {product.subCategory}
               </span>
-              <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+              <h1 className="text-gray-900 text-3xl title-font font-medium my-2 dark:text-white">
                 {product.title}
               </h1>
               <Rating rating={product.rating} />
 
-              <p className="leading-relaxed">{product.description}</p>
+              <p className="leading-relaxed dark:dark:text-gray-400 text-base">
+                {product.description}
+              </p>
               <div className="flex justify-between pt-4">
-                <p className="mt-1.5 text-lg font-bold text-gray-700">
+                <p className="mt-1.5 text-lg font-bold text-gray-700 dark:text-gray-200">
                   ${product.price}
-                  <span className="line-through text-gray-500 font-bold px-1 text-lg">
+                  <span className="line-through text-gray-500 font-bold px-1 text-lg dark:text-gray-200">
                     ${product.oldPrice}
                   </span>
                 </p>
@@ -131,7 +133,7 @@ const ProductDetails = () => {
                     ""
                   )}
 
-                  <h2>
+                  <h2 className="dark:text-gray-200 text-base">
                     {cart[0]?.quantity ? cart[0]?.quantity : product.quantity}
                   </h2>
                   {cart[0]?.quantity ? (
@@ -145,7 +147,7 @@ const ProductDetails = () => {
                     ""
                   )}
                 </div>
-                <h2 className="text-2xl font-bold">
+                <h2 className="text-2xl font-bold dark:text-gray-200">
                   {cart[0]?.quantity
                     ? cart[0]?.quantity * cart[0]?.price
                     : product.price}

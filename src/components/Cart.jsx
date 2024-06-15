@@ -32,10 +32,10 @@ const Cart = () => {
   return (
     <>
       <section>
-        <div className="container px-4 py-8 medium:px-6 medium:py-12 lg:px-8 font-outfit">
+        <div className="container-fluid px-4 py-8 medium:px-6 medium:py-12 lg:px-8 font-outfit dark:bg-slate-700">
           <div className="mx-auto container">
             <header className="text-center">
-              <h1 className="text-xl font-bold text-gray-900 medium:text-3xl">
+              <h1 className="text-xl font-bold text-gray-900 medium:text-3xl dark:text-white">
                 Your Cart
               </h1>
             </header>
@@ -54,11 +54,11 @@ const Cart = () => {
                       />
 
                       <div>
-                        <h3 className="text-lg font-bold text-gray-800">
+                        <h3 className="text-lg font-bold text-gray-800 dark:text-white">
                           {products.title}
                         </h3>
                       </div>
-                      <span className="title-font font-medium text-2xl text-gray-900">
+                      <span className="title-font font-medium text-2xl text-gray-900 dark:text-gray-200">
                         {products.price}
                       </span>
 
@@ -66,25 +66,27 @@ const Cart = () => {
                         <div className="p-2 border rounded-full flex gap-10 items-center px-5">
                           <button
                             onClick={() => decrementProductQty(products.$id)}
-                            className="cursor-pointer"
+                            className="cursor-pointer dark:text-gray-200"
                           >
                             -
                           </button>
-                          <h2>{products.quantity}</h2>
+                          <h2 className="dark:text-gray-200">
+                            {products.quantity}
+                          </h2>
                           <button
                             onClick={() => incrementProductQty(products.$id)}
-                            className="cursor-pointer"
+                            className="cursor-pointer dark:text-gray-200"
                           >
                             +
                           </button>
                         </div>
-                        <h2 className="text-2xl font-bold">
+                        <h2 className="text-2xl font-bold dark:text-gray-200">
                           {products.quantity * products.price}
                         </h2>
                       </div>
                       <div className="">
                         <button
-                          className="text-gray-600 transition hover:text-red-600 cursor-pointer"
+                          className="text-gray-600 transition hover:text-red-600 cursor-pointer dark:text-white"
                           onClick={() => removeProducts(products.$id)}
                         >
                           <span className="sr-only">Remove item</span>
@@ -119,27 +121,35 @@ const Cart = () => {
                 </ul>
 
                 <div className="px-4 w-full md:border-l-2 border-l-0 h-full border-gray-100 ">
-                  <h1 className="text-xl font-bold text-gray-900 medium:text-3xl py-4">
+                  <h1 className="text-xl font-bold text-gray-900 medium:text-3xl py-4 dark:text-white">
                     Cart Totals
                   </h1>
                   <div className="space-y-4">
-                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl  py-1">
+                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl  py-1 dark:text-gray-200">
                       SubTotal:
-                      <span className="text-gray-600 px-4">{total}</span>
+                      <span className="text-gray-600 px-4 dark:text-white">
+                        {total}
+                      </span>
                     </h2>
-                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl">
-                      Shipping:<span className="text-gray-600  px-4">Free</span>
+                    <h2 className="text-xl font-bold text-gray-700 medium:text-2xl dark:text-gray-200">
+                      Shipping:
+                      <span className="text-gray-600  px-4 dark:text-gray-200">
+                        Free
+                      </span>
                     </h2>
                     <div className="border-t-2 w-full border-gray-400 py-4">
-                      <h2 className="text-xl font-bold text-gray-900 medium:text-3xl flex justify-between">
-                        Total:<span className="text-gray-600">{total}</span>
+                      <h2 className="text-xl font-bold text-gray-900 medium:text-3xl flex justify-between dark:text-gray-200">
+                        Total:
+                        <span className="text-gray-600 dark:text-white">
+                          {total}
+                        </span>
                       </h2>
                     </div>
 
                     <div className="flex">
                       <NavLink
                         to="/checkout"
-                        className="block rounded-full border border-[#198057] bg-[#198057]  px-12 py-3 text-medium text-gray-100 transition hover:bg-[#16a34a]"
+                        className="block rounded-full border border-[#198057] bg-[#198057]  px-12 py-3 text-base text-gray-100 transition hover:bg-[#16a34a]"
                       >
                         Proceed To Checkout
                       </NavLink>
@@ -150,7 +160,7 @@ const Cart = () => {
             ) : (
               <div className="pt-8 grid grid-cols-1">
                 <h2
-                  className="text-xl  text-center font-bold text-gray-600"
+                  className="text-xl  text-center font-bold text-gray-600 dark:text-white"
                   Your
                   Cart
                   Is
