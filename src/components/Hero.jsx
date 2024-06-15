@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -16,22 +17,22 @@ const Hero = () => {
 
             <div className="lg:py-24">
               <h2 className="text-3xl font-bold sm:text-4xl dark:text-white">
-                Grow your audience
+                About SabkaBazzar
               </h2>
 
               <p className="mt-4 text-gray-600 dark:text-gray-400 text-base">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut
-                qui hic atque tenetur quis eius quos ea neque sunt, accusantium
-                soluta minus veniam tempora deserunt? Molestiae eius quidem quam
-                repellat.
+                Welcome to SabkaBazzar, your go-to eCommerce app for a seamless
+                and enjoyable shopping experience. Discover a wide range of
+                quality products at unbeatable prices, all backed by our
+                commitment to excellent customer service.
               </p>
 
-              <a
-                href="#"
-                className="mt-8 inline-block rounded-full bg-[#198057] px-12 py-3 text-sm font-medium text-white transition hover:bg-[#16a34a] focus:outline-none focus:ring focus:ring-yellow-400"
+              <NavLink
+                to="/"
+                className="mt-8 inline-block rounded-full bg-[#198057] px-12 py-3 text-sm font-base text-white transition hover:bg-[#16a34a] focus:outline-none focus:ring focus:ring-yellow-400"
               >
                 Get Started Today
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import data from "../utils/statsData";
 
 const Stats = () => {
   return (
@@ -11,43 +12,27 @@ const Stats = () => {
             </h2>
 
             <p className="mt-4 text-gray-500 sm:text-xl dark:text-gray-400">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              dolores laborum labore provident impedit esse recusandae facere
-              libero harum sequi.
+              Join the ranks of successful online stores that rely on our
+              expertise. We deliver robust and scalable solutions to meet all
+              your eCommerce needs.
             </p>
           </div>
 
           <div className="mt-8 sm:mt-12">
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center card-shadow-custom">
-                <dt className="order-last text-lg font-medium text-gray-500">
-                  Total Sales
-                </dt>
-
-                <dd className="text-4xl font-extrabold text-[#16a34a] md:text-5xl dark:text-white">
-                  $4.8m
-                </dd>
-              </div>
-
-              <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center card-shadow-custom">
-                <dt className="order-last text-lg font-medium text-gray-500 dark:text-gray-400">
-                  Official Addons
-                </dt>
-
-                <dd className="text-4xl font-extrabold text-[#16a34a] md:text-5xl dark:text-white">
-                  24
-                </dd>
-              </div>
-
-              <div className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center card-shadow-custom">
-                <dt className="order-last text-lg font-medium text-gray-500 dark:text-white">
-                  Total Addons
-                </dt>
-
-                <dd className="text-4xl font-extrabold text-[#16a34a] md:text-5xl dark:text-gray-400">
-                  86
-                </dd>
-              </div>
+              {data.map((stats) => (
+                <div
+                  className="flex flex-col rounded-lg border border-gray-100 px-4 py-8 text-center card-shadow-custom"
+                  key={stats.id}
+                >
+                  <dt className="order-last text-lg font-medium text-gray-500">
+                    {stats.heading}
+                  </dt>
+                  <dd className="text-4xl font-extrabold text-[#16a34a] md:text-5xl dark:text-white">
+                    {stats.description}
+                  </dd>
+                </div>
+              ))}
             </dl>
           </div>
         </div>

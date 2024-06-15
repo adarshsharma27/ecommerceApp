@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import Services from "./Services";
+import { NavLink } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -13,23 +14,23 @@ const AboutUs = () => {
             <div className="bg-[#198057] p-8 md:p-12 lg:px-16 lg:py-24">
               <div className="mx-auto max-w-xl text-center">
                 <h2 className="text-2xl font-bold text-white md:text-3xl dark:text-white">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit
+                  Why Choose SabkaBazzar
                 </h2>
 
-                <p className="hidden text-white/90 sm:mt-4 sm:block">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
-                  egestas tempus tellus etiam sed. Quam a scelerisque amet
-                  ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
-                  quisque ut interdum tincidunt duis.
+                <p className="hidden text-white/90 sm:mt-4 sm:block text-base">
+                  Experience the difference with SabkaBazzar, where quality
+                  meets affordability. Enjoy a user-friendly interface, fast
+                  delivery, and exceptional customer support, making your
+                  shopping journey smooth and satisfying.
                 </p>
 
                 <div className="mt-4 md:mt-8">
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/"
                     className="inline-block rounded-full border border-white bg-white px-12 py-3 text-sm font-medium text-blue-500 transition hover:bg-transparent hover:text-white focus:outline-none focus:ring focus:ring-yellow-400"
                   >
                     Get Started Today
-                  </a>
+                  </NavLink>
                 </div>
               </div>
             </div>
