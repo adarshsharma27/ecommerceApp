@@ -343,7 +343,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="title"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.title}
                       onChange={productHandle}
@@ -367,7 +367,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="category"
                       onChange={productHandle}
                     >
@@ -399,7 +399,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="mainCategory"
                       onChange={productHandle}
                     >
@@ -429,7 +429,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="subCategory"
                       onChange={productHandle}
                     >
@@ -463,7 +463,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="outOfStock"
                       onChange={productHandle}
                     >
@@ -502,7 +502,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="rating"
                       onChange={productHandle}
                     >
@@ -537,7 +537,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="oldPrice"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.oldPrice}
                       onChange={productHandle}
@@ -563,7 +563,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="price"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.price}
                       onChange={productHandle}
@@ -589,7 +589,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="quantity"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white "
                       placeholder="Please Enter Title"
                       value={product?.quantity}
                       onChange={productHandle}
@@ -615,7 +615,7 @@ const UpdateProduct = () => {
                   <textarea
                     id={uId}
                     name="description"
-                    className="w-full rounded-3xl  h-32  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a]"
+                    className="w-full rounded-3xl  h-32  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     data-gramm="false"
                     wt-ignore-input="true"
                     placeholder="Please Enter Description"

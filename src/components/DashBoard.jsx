@@ -60,7 +60,7 @@ const DashBoard = () => {
   return (
     <>
       <section className="text-gray-600 font-outfit  dark:bg-[#313E51]">
-        <div className="container px-5  mx-auto">
+        <div className="container px-5 pt-4 pb-6  mx-auto">
           <div className="flex flex-col">
             <div className="flex flex-wrap sm:flex-row flex-col py-6">
               <h1 className="sm:w-2/5 text-gray-900 font-bold font-montserrat text-3xl mb-2 sm:mb-0 dark:text-white">
@@ -141,7 +141,7 @@ const DashBoard = () => {
             </h1>
             <NavLink
               to="/addproducts"
-              className="flex justify-center items-center gap-1 font-bold  transition hover:scale-105"
+              className="flex justify-center items-center gap-1 font-bold text-lg  transition hover:scale-105 dark:text-white"
             >
               AddProducts{" "}
               <LuPlusCircle
