@@ -25,9 +25,16 @@ import UpdateUserProfile from "./components/UpdateUserProfile";
 import { useSelector } from "react-redux";
 import ProtectedRoutes from "./ProtectedRoutes";
 import { useEffect ,useState} from "react";
+import { account } from "./conf/config";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const deletePreviousSession = async () => {
+      await account.deleteSession("current");
+    };
+    deletePreviousSession();
+  }, []);
   useEffect(() => {
     const mode = localStorage.getItem("mode");
     if (mode === "true") {
