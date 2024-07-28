@@ -7,7 +7,7 @@ import {
   LuArrowUp,
   LuSearch,
 } from "react-icons/lu";
-import conf, { databases } from "../conf/config";
+import conf, { databases } from "../../conf/config";
 import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import {
@@ -160,7 +160,7 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
       <div className="overflow-x-auto mt-2 overflow-y-scroll h-[80vh] container mx-auto rounded-lg border border-gray-200  dark:bg-[#313E51] dark:shadow-2xl card-shadow-custom dark:text-white">
         <form className="search w-[60%]  relative py-4 px-2">
           <input
-            className="w-full rounded-lg  text-gray-700 border-gray-300 p-4 pe-12 text-sm shadow-lg  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+            className="w-full rounded-lg  text-gray-700 border-gray-300 p-4 pe-12 text-base shadow-lg  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
             type="text"
             placeholder="Search"
             aria-label="Search"

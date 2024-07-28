@@ -4,7 +4,7 @@ const DashBoardTable = ({ users }) => {
   return (
     <>
       <div className="overflow-x-auto overflow-y-scroll h-[80vh] container my-6 mx-auto rounded-lg border border-gray-200  dark:bg-[#313E51] dark:shadow-2xl card-shadow-custom dark:text-white">
-        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-medium  dark:bg-[#313E51] dark:divide-[#313E51] dark:text-white">
+        <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-base  dark:bg-[#313E51] dark:divide-[#313E51] dark:text-white">
           <thead className="text-center bg-gray-100 dark:bg-[#313E51] ">
             <tr>
               <th className="whitespace-nowrap px-4 py-2  text-lg font-semibold text-gray-900 dark:text-white">

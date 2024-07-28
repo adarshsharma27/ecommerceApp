@@ -324,7 +324,7 @@ const UpdateProduct = () => {
 
           <div className="container px-5 py-4 mx-auto">
             <div className="flex flex-col text-center w-full py-6">
-              <h1 className="medium:text-3xl text-3xl font-bold font-outfit text-gray-900 dark:text-white">
+              <h1 className="base:text-3xl text-3xl font-bold font-outfit text-gray-900 dark:text-white">
                 Add Products
               </h1>
               <p className="lg:w-2/3 mx-auto leading-relaxed text-base  dark:text-gray-400"></p>
@@ -343,7 +343,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="title"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.title}
                       onChange={productHandle}
@@ -367,14 +367,14 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="category"
                       onChange={productHandle}
                     >
-                      <option value="">Please Select Category</option>
                       <option value={product?.category}>
                         {product?.category}
                       </option>
+                      <option value="">Please Select Category</option>
                       <option value="trending">Trending</option>
                       <option value="popular">Featured</option>
                     </select>
@@ -399,7 +399,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="mainCategory"
                       onChange={productHandle}
                     >
@@ -429,7 +429,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="subCategory"
                       onChange={productHandle}
                     >
@@ -463,7 +463,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="outOfStock"
                       onChange={productHandle}
                     >
@@ -502,7 +502,7 @@ const UpdateProduct = () => {
                     </label>
                     <select
                       id={uId}
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       name="rating"
                       onChange={productHandle}
                     >
@@ -537,7 +537,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="oldPrice"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.oldPrice}
                       onChange={productHandle}
@@ -563,7 +563,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="price"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                       placeholder="Please Enter Title"
                       value={product?.price}
                       onChange={productHandle}
@@ -589,7 +589,7 @@ const UpdateProduct = () => {
                       type="text"
                       id={uId}
                       name="quantity"
-                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white "
+                      className="w-full rounded-full  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white "
                       placeholder="Please Enter Title"
                       value={product?.quantity}
                       onChange={productHandle}
@@ -615,7 +615,7 @@ const UpdateProduct = () => {
                   <textarea
                     id={uId}
                     name="description"
-                    className="w-full rounded-3xl  h-32  text-gray-700 border-gray-200 p-4 pe-12 text-medium shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
+                    className="w-full rounded-3xl  h-32  text-gray-700 border-gray-200 p-4 pe-12 text-base shadow-md  outline-none focus:ring-1 focus:ring-[#16a34a] dark:bg-[#3C4D67] dark:text-white"
                     data-gramm="false"
                     wt-ignore-input="true"
                     placeholder="Please Enter Description"
@@ -660,7 +660,7 @@ const UpdateProduct = () => {
                                 d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                               />
                             </svg>
-                            <p className="mb-2  text-medium  text-center md:text-lg text-gray-500 dark:text-gray-400">
+                            <p className="mb-2  text-base  text-center md:text-lg text-gray-500 dark:text-gray-400">
                               <span className="font-semibold">
                                 Click to upload
                               </span>

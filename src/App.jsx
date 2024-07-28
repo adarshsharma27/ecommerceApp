@@ -14,7 +14,7 @@ import { Toaster } from "react-hot-toast";
 import TrendingProducts from "./components/TrendingProducts";
 import PopularProducts from "./components/PopularProducts";
 import SubCategories from "./components/SubCategories";
-import DashBoard from "./components/DashBoard";
+import DashBoard from "./components/dashBoard/DashBoard";
 import CheckOutPage from "./components/CheckOutPage";
 import AddProducts from "./components/AddProducts";
 import UpdateProduct from "./components/UpdateProduct";

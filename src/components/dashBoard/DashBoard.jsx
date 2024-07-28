@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DashBoardCharts from "./DashBoardCharts";
 import DashBoardTable from "./DashBoardTable";
 import { FaUsers, FaIdCardClip, FaCartArrowDown } from "react-icons/fa6";
-import conf, { databases } from "../conf/config";
+import conf, { databases } from "../../conf/config";
 import DashBoardOrders from "./DashBoardOrders";
 import DashBoardProducts from "./DashBoardProducts";
 import { NavLink } from "react-router-dom";
