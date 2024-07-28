@@ -187,11 +187,11 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
                           header.getContext()
                         )}
                     {showArrow && !header.column.getIsSorted() && (
-                      <LuArrowDown size={20} />
+                      <LuArrowDown size={20} className="mx-auto" />
                     )}
                     {{
-                      asc: <LuArrowUp size={20} />,
-                      desc: <LuArrowDown size={20} />,
+                      asc: <LuArrowUp size={20} className="mx-auto"/>,
+                      desc: <LuArrowDown size={20} className="mx-auto" />,
                     }[header.column.getIsSorted()] ?? null}
                   </th>
                 ))}
