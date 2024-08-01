@@ -86,6 +86,7 @@ const ProductDetails = () => {
               alt={product.title}
               className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
               src={product.image}
+              loading="lazy"
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
               <span className="whitespace-nowrap bg-[#16a34a] text-white px-3 py-1.5 text-xs font-medium rounded-full">

@@ -701,7 +701,7 @@ const UpdateProduct = () => {
                   <>
                     <div className="p-2 w-full">
                       <div className="relative flex flex-col items-center justify-center p-2 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-100 bg-opacity-50 dark:hover:bg-bray-800 dark:bg-slate-700  dark:border-white">
-                        <img src={imageUrl} className="relative" />
+                        <img src={imageUrl} className="relative" loading="lazy" />
                         <LuX
                           size={40}
                           className="bg-[#198057] text-white p-1 hover:bg-red-400 transition hover:scale-110  hover:cursor-pointer dark:text-white absolute top-6 right-6"

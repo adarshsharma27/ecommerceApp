@@ -301,6 +301,7 @@ const UpdateUserProfile = () => {
                         <img
                           src={imageUrl}
                           className="relative h-60 rounded-full"
+                          loading="lazy"
                         />
                         <LuX
                           size={40}

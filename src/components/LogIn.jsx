@@ -130,6 +130,7 @@ const LogIn = () => {
             alt="profileLinks"
             src="images/login.avif"
             className="object-cover w-full  lg:h-[470px]  h-full rounded-lg "
+            loading="lazy"
           />
         </div>
         <div>
@@ -225,6 +226,8 @@ const LogIn = () => {
                 <button
                   className="inline-flex w-full justify-center items-center gap-2 rounded-full border border-[#198057] bg-[#198057] px-12 py-3 text-white hover:bg-transparent hover:text-[#16a34a] focus:outline-none focus:ring active:text-[#16a34a]"
                   onClick={LogIn}
+                  onKeyDown={(e)=>{e.key==='Enter' ? LogIn() :""
+                  }} 
                 >
                   <span className="text-base font-semibold"> LogIn </span>
 

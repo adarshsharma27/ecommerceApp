@@ -32,6 +32,7 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
             src={row.getValue()}
             alt={row?.row.original?.title}
             className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
+            loading="lazy"
           />
         );
       },

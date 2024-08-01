@@ -85,6 +85,7 @@ const WishListProduct = () => {
                     className="w-3/5 mx-auto"
                     alt="noWishList"
                     src="/images/wishlist.svg"
+                    loading="lazy"
                   />
                 </div>
               </>

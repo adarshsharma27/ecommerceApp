@@ -42,6 +42,7 @@ const UserProfile = () => {
                     className="h-44 w-44 rounded-full mr-4 border-4  p-1 border-[#198057]  "
                     src={userProfile.prefs?.imageUrl || "images/avatar.svg"}
                     alt="User"
+                    loading="lazy"
                   />
                   <p className="font-bold text-gray-800 text-xl dark:text-white">
                     {userProfile.prefs?.name || userProfile.name}

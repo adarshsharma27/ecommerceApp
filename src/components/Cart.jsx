@@ -51,6 +51,7 @@ const Cart = () => {
                         src={products.image}
                         alt=""
                         className="w-40 object-cover transition duration-500 group-hover:scale-105"
+                        loading="lazy"
                       />
 
                       <div>

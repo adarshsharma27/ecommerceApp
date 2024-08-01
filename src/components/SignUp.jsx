@@ -107,6 +107,7 @@ const SignUp = () => {
             alt="profileLinks"
             src="images/login.avif"
             className="object-cover w-full lg:h-[495px] h-full rounded-lg "
+            loading="lazy"
           />
         </div>
         <div>

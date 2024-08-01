@@ -15,6 +15,7 @@ const Categories = () => {
                   src={category.imageUrl}
                   alt={category.title}
                   className="md:h-[110px] md:w-[110px] w-[80px] h-[80px] rounded-full object-cover transition duration-500 group-hover:scale-105 border-4 p-1 border-[#198057]"
+                  loading="lazy"
                 />
                 <h3 className="md:text-lg  text-sm font-bold text-gray-700">
                   {category.title}
