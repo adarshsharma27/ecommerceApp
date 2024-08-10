@@ -191,7 +191,7 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
                       <LuArrowDown size={20} className="mx-auto" />
                     )}
                     {{
-                      asc: <LuArrowUp size={20} className="mx-auto"/>,
+                      asc: <LuArrowUp size={20} className="mx-auto" />,
                       desc: <LuArrowDown size={20} className="mx-auto" />,
                     }[header.column.getIsSorted()] ?? null}
                   </th>
@@ -203,11 +203,11 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
           <tbody className="divide-y divide-gray-200">
             {table.getRowModel().rows.length === 0 ? (
               <td
-                colspan="4"
+                colspan="12"
                 className="fs-5 py-2 text-center fw-bold text-danger"
                 id="exampleModalLongTitle"
               >
-                No Products
+                <h4>No Products Found</h4>
               </td>
             ) : (
               table.getRowModel().rows.map((row) => (
@@ -226,6 +226,7 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
           </tbody>
         </table>
       </div>
+      {!table.getCanPreviousPage()}
       <div className="text-lg flex justify-end items-center py-3 px-3 cursor-pointer">
         <span className="pe-2">Row Per Page</span>{" "}
         <select
@@ -248,34 +249,34 @@ const DashBoardProducts = ({ allProducts, setUpdatedProducts }) => {
             {table.getPageCount()}
           </strong>{" "}
         </span>
-        <div
-          className="page-item paginator "
+        <button
+          className="page-item paginator disabled:cursor-not-allowed"
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}
         >
           {"<<"}
-        </div>{" "}
-        <div
-          className="page-item paginator  px-2"
+        </button>{" "}
+        <button
+          className="page-item paginator  px-2 disabled:cursor-not-allowed"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
         >
           {"<"}
-        </div>{" "}
-        <div
-          className="page-item paginator  px-2"
+        </button>{" "}
+        <button
+          className="page-item paginator  px-2 disabled:cursor-not-allowed"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
         >
           {">"}
-        </div>{" "}
-        <div
-          className="page-item paginator"
+        </button>{" "}
+        <button
+          className="page-item paginator disabled:cursor-not-allowed"
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           disabled={!table.getCanNextPage()}
         >
           {">>"}
-        </div>{" "}
+        </button>{" "}
       </div>
     </>
   );
